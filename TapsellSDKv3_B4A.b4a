@@ -1,0 +1,122 @@
+﻿Version=6.5
+NumberOfModules=1
+Module1=Starter
+Build1=Default,ir.tapsell.b4asample
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>~\n~<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>~\n~<uses-permission android:name="android.permission.INTERNET"/>~\n~<uses-permission android:name="android.permission.READ_PHONE_STATE"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddApplicationText(~\n~        <!-- Required Activity -->~\n~        <activity~\n~            android:name="ir.tapsell.sdk.TapsellAdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>~\n~        )
+IconFile=
+NumberOfFiles=1
+File1=bkoodb.ttf
+NumberOfLibraries=2
+Library1=core
+Library2=tapsellsdk
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: Tapsell B4A Sample
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+	#DebuggerForceStandardAssets : true
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: True
+	#AdditionalJar : gson-2.8.0.jar
+    #AdditionalJar : tapsell-b4a-3.0.3.jar
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	Private tapsell As Tapsell
+	Dim request_button , show_button As Button
+	Private ad As String
+	Private coins As Int
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	'Activity.LoadLayout("Layout1")
+	coins = 0
+	tapsell.initialize("gfmkmttpomfmgtsjmmagbdmeesdioapomfqirteitgkgqndlmjoaqekdplhbpabqfafaib")
+	tapsell.DebugMode = True
+	request_button.initialize("request_button")
+	show_button.Initialize("show_button")
+	Activity.AddView(request_button,0,0,50%x,20%y)
+	Activity.AddView(show_button,50%x,0,50%x,20%y)
+	request_button.Text = "Request Ad"
+	show_button.Text = "Show Ad"
+	show_button.Enabled = False
+	request_button.Enabled = True
+	
+End Sub
+
+Sub Activity_Resume
+	
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+	
+End Sub
+
+Sub request_button_Click
+	tapsell.requestAd("",True)
+	request_button.Enabled = False
+End Sub
+
+Sub show_button_Click
+	tapsell.showAd(ad,False,False,tapsell.ROTATION_LOCKED_PORTRAIT)
+	show_button.Enabled = False
+	request_button.Enabled = True
+End Sub
+
+Sub Tapsell_onAdShowFinished (zoneId As String, adId As String, completed As Boolean, rewarded As Boolean)
+	Log("onAdShowFinished")
+	If completed=True Then
+		If rewarded=True Then
+			ToastMessageShow("You received 1 Coin for watching video!",True)
+				coins = coins + 1
+		End If
+	End If
+End Sub
+
+Sub Tapsell_onAdAvailable (zoneId As String, adId As String)
+	show_button.Enabled = True
+	request_button.Enabled = False
+	ad = adId
+End Sub
+
+Sub Tapsell_onNoAdAvailable (zoneId As String)
+	Msgbox("NoAdAvailable","Tapsell")
+	request_button.Enabled = True
+	show_button.Enabled = False
+End Sub
+
+Sub Tapsell_onNoNetwork (zoneId As String)
+	Msgbox("NoNetwork","Tapsell")
+	request_button.Enabled = True
+	show_button.Enabled = False
+End Sub
+
+Sub Tapsell_onError (zoneId As String, error As String)
+	Msgbox("Error","Tapsell")
+	request_button.Enabled = True
+	show_button.Enabled = False
+End Sub
+
+Sub Tapsell_onExpiring (zoneId As String, adId As String)
+	ad = Null
+	request_button.Enabled = True
+	show_button.Enabled = False
+End Sub
+
+
+
