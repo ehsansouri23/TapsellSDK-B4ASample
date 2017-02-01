@@ -338,9 +338,9 @@ public static String  _activity_create(boolean _firsttime) throws Exception{
  //BA.debugLineNum = 33;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
  //BA.debugLineNum = 36;BA.debugLine="coins = 0";
 _coins = (int) (0);
- //BA.debugLineNum = 37;BA.debugLine="Tapsell.initialize(\"gfmkmttpomfmgtsjmmagbdmeesdio";
+ //BA.debugLineNum = 37;BA.debugLine="tapsell.initialize(\"gfmkmttpomfmgtsjmmagbdmeesdio";
 mostCurrent._tapsell.initialize(mostCurrent.activityBA,"gfmkmttpomfmgtsjmmagbdmeesdioapomfqirteitgkgqndlmjoaqekdplhbpabqfafaib");
- //BA.debugLineNum = 38;BA.debugLine="Tapsell.DebugMode = True";
+ //BA.debugLineNum = 38;BA.debugLine="tapsell.DebugMode = True";
 mostCurrent._tapsell.setDebugMode(anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 39;BA.debugLine="request_button.initialize(\"request_button\")";
 mostCurrent._request_button.Initialize(mostCurrent.activityBA,"request_button");
@@ -373,7 +373,7 @@ return "";
 }
 public static String  _globals() throws Exception{
  //BA.debugLineNum = 24;BA.debugLine="Sub Globals";
- //BA.debugLineNum = 27;BA.debugLine="Private Tapsell As Tapsell";
+ //BA.debugLineNum = 27;BA.debugLine="Private tapsell As Tapsell";
 mostCurrent._tapsell = new ir.tapsell.sdk.b4a.Tapsell();
  //BA.debugLineNum = 28;BA.debugLine="Dim request_button , show_button As Button";
 mostCurrent._request_button = new anywheresoftware.b4a.objects.ButtonWrapper();
@@ -405,7 +405,7 @@ return "";
 }
 public static String  _request_button_click() throws Exception{
  //BA.debugLineNum = 58;BA.debugLine="Sub request_button_Click";
- //BA.debugLineNum = 59;BA.debugLine="Tapsell.requestAd(\"\",True)";
+ //BA.debugLineNum = 59;BA.debugLine="tapsell.requestAd(\"\",True)";
 mostCurrent._tapsell.requestAd("",anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 60;BA.debugLine="request_button.Enabled = False";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
@@ -414,8 +414,8 @@ return "";
 }
 public static String  _show_button_click() throws Exception{
  //BA.debugLineNum = 63;BA.debugLine="Sub show_button_Click";
- //BA.debugLineNum = 64;BA.debugLine="Tapsell.showAd(ad,False,False,Tapsell.ROTATION_UN";
-mostCurrent._tapsell.showAd(mostCurrent._ad,anywheresoftware.b4a.keywords.Common.False,anywheresoftware.b4a.keywords.Common.False,mostCurrent._tapsell.ROTATION_UNLOCKED);
+ //BA.debugLineNum = 64;BA.debugLine="tapsell.showAd(ad,False,False,tapsell.ROTATION_LO";
+mostCurrent._tapsell.showAd(mostCurrent._ad,anywheresoftware.b4a.keywords.Common.False,anywheresoftware.b4a.keywords.Common.False,mostCurrent._tapsell.ROTATION_LOCKED_PORTRAIT);
  //BA.debugLineNum = 65;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
  //BA.debugLineNum = 66;BA.debugLine="request_button.Enabled = True";
