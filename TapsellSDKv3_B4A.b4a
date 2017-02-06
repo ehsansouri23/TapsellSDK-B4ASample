@@ -24,7 +24,7 @@ Library2=tapsellsdk
 	#FullScreen: False
 	#IncludeTitle: True
 	#AdditionalJar : gson-2.8.0.jar
-    #AdditionalJar : tapsell-b4a-3.0.5.jar
+    #AdditionalJar : tapsell-b4a-3.0.6.jar
 #End Region
 
 Sub Process_Globals
@@ -73,7 +73,7 @@ Sub request_button_Click
 End Sub
 
 Sub show_button_Click
-	tapsell.showAd(ad,False,False,tapsell.ROTATION_LOCKED_PORTRAIT)
+	tapsell.showAd(ad,False,False,tapsell.ROTATION_LOCKED_PORTRAIT,True)
 	show_button.Enabled = False
 	request_button.Enabled = True
 End Sub

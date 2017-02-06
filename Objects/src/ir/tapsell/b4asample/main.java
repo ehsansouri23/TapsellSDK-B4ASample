@@ -415,7 +415,7 @@ return "";
 public static String  _show_button_click() throws Exception{
  //BA.debugLineNum = 63;BA.debugLine="Sub show_button_Click";
  //BA.debugLineNum = 64;BA.debugLine="tapsell.showAd(ad,False,False,tapsell.ROTATION_LO";
-mostCurrent._tapsell.showAd(mostCurrent._ad,anywheresoftware.b4a.keywords.Common.False,anywheresoftware.b4a.keywords.Common.False,mostCurrent._tapsell.ROTATION_LOCKED_PORTRAIT);
+mostCurrent._tapsell.showAd(mostCurrent._ad,anywheresoftware.b4a.keywords.Common.False,anywheresoftware.b4a.keywords.Common.False,mostCurrent._tapsell.ROTATION_LOCKED_PORTRAIT,anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 65;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
  //BA.debugLineNum = 66;BA.debugLine="request_button.Enabled = True";
