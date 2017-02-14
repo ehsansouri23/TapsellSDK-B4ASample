@@ -24,7 +24,7 @@ Library2=tapsellsdk
 	#FullScreen: False
 	#IncludeTitle: True
 	#AdditionalJar : gson-2.8.0.jar
-    #AdditionalJar : tapsell-b4a-3.0.6.jar
+    #AdditionalJar : tapsell-b4a-3.0.8.jar
 #End Region
 
 Sub Process_Globals
