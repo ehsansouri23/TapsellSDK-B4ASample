@@ -405,8 +405,8 @@ return "";
 }
 public static String  _request_button_click() throws Exception{
  //BA.debugLineNum = 58;BA.debugLine="Sub request_button_Click";
- //BA.debugLineNum = 59;BA.debugLine="tapsell.requestAd(\"\",True)";
-mostCurrent._tapsell.requestAd("",anywheresoftware.b4a.keywords.Common.True);
+ //BA.debugLineNum = 59;BA.debugLine="tapsell.requestAd(\"587f498846846531e1afa37c\",True";
+mostCurrent._tapsell.requestAd("587f498846846531e1afa37c",anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 60;BA.debugLine="request_button.Enabled = False";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
  //BA.debugLineNum = 61;BA.debugLine="End Sub";

@@ -24,7 +24,7 @@ Library2=tapsellsdk
 	#FullScreen: False
 	#IncludeTitle: True
 	#AdditionalJar : gson-2.8.0.jar
-    #AdditionalJar : tapsell-b4a-3.0.10.jar
+    #AdditionalJar : tapsell-b4a-3.0.14.jar
 #End Region
 
 Sub Process_Globals
@@ -68,7 +68,7 @@ Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
 Sub request_button_Click
-	tapsell.requestAd("",True)
+	tapsell.requestAd("587f498846846531e1afa37c",True)
 	request_button.Enabled = False
 End Sub
 
