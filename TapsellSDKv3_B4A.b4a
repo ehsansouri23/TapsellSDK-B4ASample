@@ -40,6 +40,7 @@ Sub Globals
 	Dim request_button , show_button As Button
 	Private ad As String
 	Private coins As Int
+	Private videoViewed As Boolean
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -60,7 +61,11 @@ Sub Activity_Create(FirstTime As Boolean)
 End Sub
 
 Sub Activity_Resume
-	
+	If videoViewed=True Then
+		videoViewed=False
+		ToastMessageShow("You received 1 Coin for watching video!",True)
+		coins = coins + 1
+	End If
 End Sub
 
 Sub Activity_Pause (UserClosed As Boolean)
@@ -73,7 +78,7 @@ Sub request_button_Click
 End Sub
 
 Sub show_button_Click
-	tapsell.showAd(ad,False,False,tapsell.ROTATION_LOCKED_PORTRAIT,True)
+	tapsell.showAd(ad,False,False,tapsell.ROTATION_UNLOCKED,True)
 	show_button.Enabled = False
 	request_button.Enabled = True
 End Sub
@@ -82,8 +87,7 @@ Sub Tapsell_onAdShowFinished (zoneId As String, adId As String, completed As Boo
 	Log("onAdShowFinished")
 	If completed=True Then
 		If rewarded=True Then
-			ToastMessageShow("You received 1 Coin for watching video!",True)
-				coins = coins + 1
+			videoViewed = True
 		End If
 	End If
 End Sub

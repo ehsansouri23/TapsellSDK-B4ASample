@@ -328,6 +328,7 @@ public anywheresoftware.b4a.objects.ButtonWrapper _request_button = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _show_button = null;
 public static String _ad = "";
 public static int _coins = 0;
+public static boolean _videoviewed = false;
 public ir.tapsell.b4asample.starter _starter = null;
 
 public static boolean isAnyActivityVisible() {
@@ -335,40 +336,49 @@ public static boolean isAnyActivityVisible() {
 vis = vis | (main.mostCurrent != null);
 return vis;}
 public static String  _activity_create(boolean _firsttime) throws Exception{
- //BA.debugLineNum = 33;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
- //BA.debugLineNum = 36;BA.debugLine="coins = 0";
+ //BA.debugLineNum = 34;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
+ //BA.debugLineNum = 37;BA.debugLine="coins = 0";
 _coins = (int) (0);
- //BA.debugLineNum = 37;BA.debugLine="tapsell.initialize(\"gfmkmttpomfmgtsjmmagbdmeesdio";
+ //BA.debugLineNum = 38;BA.debugLine="tapsell.initialize(\"gfmkmttpomfmgtsjmmagbdmeesdio";
 mostCurrent._tapsell.initialize(mostCurrent.activityBA,"gfmkmttpomfmgtsjmmagbdmeesdioapomfqirteitgkgqndlmjoaqekdplhbpabqfafaib");
- //BA.debugLineNum = 38;BA.debugLine="tapsell.DebugMode = True";
+ //BA.debugLineNum = 39;BA.debugLine="tapsell.DebugMode = True";
 mostCurrent._tapsell.setDebugMode(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 39;BA.debugLine="request_button.initialize(\"request_button\")";
+ //BA.debugLineNum = 40;BA.debugLine="request_button.initialize(\"request_button\")";
 mostCurrent._request_button.Initialize(mostCurrent.activityBA,"request_button");
- //BA.debugLineNum = 40;BA.debugLine="show_button.Initialize(\"show_button\")";
+ //BA.debugLineNum = 41;BA.debugLine="show_button.Initialize(\"show_button\")";
 mostCurrent._show_button.Initialize(mostCurrent.activityBA,"show_button");
- //BA.debugLineNum = 41;BA.debugLine="Activity.AddView(request_button,0,0,50%x,20%y)";
+ //BA.debugLineNum = 42;BA.debugLine="Activity.AddView(request_button,0,0,50%x,20%y)";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._request_button.getObject()),(int) (0),(int) (0),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (50),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (20),mostCurrent.activityBA));
- //BA.debugLineNum = 42;BA.debugLine="Activity.AddView(show_button,50%x,0,50%x,20%y)";
+ //BA.debugLineNum = 43;BA.debugLine="Activity.AddView(show_button,50%x,0,50%x,20%y)";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._show_button.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (50),mostCurrent.activityBA),(int) (0),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (50),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (20),mostCurrent.activityBA));
- //BA.debugLineNum = 43;BA.debugLine="request_button.Text = \"Request Ad\"";
+ //BA.debugLineNum = 44;BA.debugLine="request_button.Text = \"Request Ad\"";
 mostCurrent._request_button.setText((Object)("Request Ad"));
- //BA.debugLineNum = 44;BA.debugLine="show_button.Text = \"Show Ad\"";
+ //BA.debugLineNum = 45;BA.debugLine="show_button.Text = \"Show Ad\"";
 mostCurrent._show_button.setText((Object)("Show Ad"));
- //BA.debugLineNum = 45;BA.debugLine="show_button.Enabled = False";
+ //BA.debugLineNum = 46;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 46;BA.debugLine="request_button.Enabled = True";
+ //BA.debugLineNum = 47;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 48;BA.debugLine="End Sub";
+ //BA.debugLineNum = 49;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 54;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 56;BA.debugLine="End Sub";
+ //BA.debugLineNum = 59;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+ //BA.debugLineNum = 61;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 50;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 52;BA.debugLine="End Sub";
+ //BA.debugLineNum = 51;BA.debugLine="Sub Activity_Resume";
+ //BA.debugLineNum = 52;BA.debugLine="If videoViewed=True Then";
+if (_videoviewed==anywheresoftware.b4a.keywords.Common.True) { 
+ //BA.debugLineNum = 53;BA.debugLine="videoViewed=False";
+_videoviewed = anywheresoftware.b4a.keywords.Common.False;
+ //BA.debugLineNum = 54;BA.debugLine="ToastMessageShow(\"You received 1 Coin for watchi";
+anywheresoftware.b4a.keywords.Common.ToastMessageShow("You received 1 Coin for watching video!",anywheresoftware.b4a.keywords.Common.True);
+ //BA.debugLineNum = 55;BA.debugLine="coins = coins + 1";
+_coins = (int) (_coins+1);
+ };
+ //BA.debugLineNum = 57;BA.debugLine="End Sub";
 return "";
 }
 public static String  _globals() throws Exception{
@@ -382,7 +392,9 @@ mostCurrent._show_button = new anywheresoftware.b4a.objects.ButtonWrapper();
 mostCurrent._ad = "";
  //BA.debugLineNum = 30;BA.debugLine="Private coins As Int";
 _coins = 0;
- //BA.debugLineNum = 31;BA.debugLine="End Sub";
+ //BA.debugLineNum = 31;BA.debugLine="Private videoViewed As Boolean";
+_videoviewed = false;
+ //BA.debugLineNum = 32;BA.debugLine="End Sub";
 return "";
 }
 
@@ -404,95 +416,93 @@ starter._process_globals();
 return "";
 }
 public static String  _request_button_click() throws Exception{
- //BA.debugLineNum = 58;BA.debugLine="Sub request_button_Click";
- //BA.debugLineNum = 59;BA.debugLine="tapsell.requestAd(\"587f498846846531e1afa37c\",True";
+ //BA.debugLineNum = 63;BA.debugLine="Sub request_button_Click";
+ //BA.debugLineNum = 64;BA.debugLine="tapsell.requestAd(\"587f498846846531e1afa37c\",True";
 mostCurrent._tapsell.requestAd("587f498846846531e1afa37c",anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 60;BA.debugLine="request_button.Enabled = False";
+ //BA.debugLineNum = 65;BA.debugLine="request_button.Enabled = False";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 61;BA.debugLine="End Sub";
+ //BA.debugLineNum = 66;BA.debugLine="End Sub";
 return "";
 }
 public static String  _show_button_click() throws Exception{
- //BA.debugLineNum = 63;BA.debugLine="Sub show_button_Click";
- //BA.debugLineNum = 64;BA.debugLine="tapsell.showAd(ad,False,False,tapsell.ROTATION_LO";
-mostCurrent._tapsell.showAd(mostCurrent._ad,anywheresoftware.b4a.keywords.Common.False,anywheresoftware.b4a.keywords.Common.False,mostCurrent._tapsell.ROTATION_LOCKED_PORTRAIT,anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 65;BA.debugLine="show_button.Enabled = False";
+ //BA.debugLineNum = 68;BA.debugLine="Sub show_button_Click";
+ //BA.debugLineNum = 69;BA.debugLine="tapsell.showAd(ad,False,False,tapsell.ROTATION_UN";
+mostCurrent._tapsell.showAd(mostCurrent._ad,anywheresoftware.b4a.keywords.Common.False,anywheresoftware.b4a.keywords.Common.False,mostCurrent._tapsell.ROTATION_UNLOCKED,anywheresoftware.b4a.keywords.Common.True);
+ //BA.debugLineNum = 70;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 66;BA.debugLine="request_button.Enabled = True";
+ //BA.debugLineNum = 71;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 67;BA.debugLine="End Sub";
+ //BA.debugLineNum = 72;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onadavailable(String _zoneid,String _adid) throws Exception{
- //BA.debugLineNum = 79;BA.debugLine="Sub Tapsell_onAdAvailable (zoneId As String, adId";
- //BA.debugLineNum = 80;BA.debugLine="show_button.Enabled = True";
+ //BA.debugLineNum = 83;BA.debugLine="Sub Tapsell_onAdAvailable (zoneId As String, adId";
+ //BA.debugLineNum = 84;BA.debugLine="show_button.Enabled = True";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 81;BA.debugLine="request_button.Enabled = False";
+ //BA.debugLineNum = 85;BA.debugLine="request_button.Enabled = False";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 82;BA.debugLine="ad = adId";
+ //BA.debugLineNum = 86;BA.debugLine="ad = adId";
 mostCurrent._ad = _adid;
- //BA.debugLineNum = 83;BA.debugLine="End Sub";
+ //BA.debugLineNum = 87;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onadshowfinished(String _zoneid,String _adid,boolean _completed,boolean _rewarded) throws Exception{
- //BA.debugLineNum = 69;BA.debugLine="Sub Tapsell_onAdShowFinished (zoneId As String, ad";
- //BA.debugLineNum = 70;BA.debugLine="Log(\"onAdShowFinished\")";
+ //BA.debugLineNum = 74;BA.debugLine="Sub Tapsell_onAdShowFinished (zoneId As String, ad";
+ //BA.debugLineNum = 75;BA.debugLine="Log(\"onAdShowFinished\")";
 anywheresoftware.b4a.keywords.Common.Log("onAdShowFinished");
- //BA.debugLineNum = 71;BA.debugLine="If completed=True Then";
+ //BA.debugLineNum = 76;BA.debugLine="If completed=True Then";
 if (_completed==anywheresoftware.b4a.keywords.Common.True) { 
- //BA.debugLineNum = 72;BA.debugLine="If rewarded=True Then";
+ //BA.debugLineNum = 77;BA.debugLine="If rewarded=True Then";
 if (_rewarded==anywheresoftware.b4a.keywords.Common.True) { 
- //BA.debugLineNum = 73;BA.debugLine="ToastMessageShow(\"You received 1 Coin for watch";
-anywheresoftware.b4a.keywords.Common.ToastMessageShow("You received 1 Coin for watching video!",anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 74;BA.debugLine="coins = coins + 1";
-_coins = (int) (_coins+1);
+ //BA.debugLineNum = 78;BA.debugLine="videoViewed = True";
+_videoviewed = anywheresoftware.b4a.keywords.Common.True;
  };
  };
- //BA.debugLineNum = 77;BA.debugLine="End Sub";
+ //BA.debugLineNum = 81;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onerror(String _zoneid,String _error) throws Exception{
- //BA.debugLineNum = 97;BA.debugLine="Sub Tapsell_onError (zoneId As String, error As St";
- //BA.debugLineNum = 98;BA.debugLine="Msgbox(\"Error\",\"Tapsell\")";
+ //BA.debugLineNum = 101;BA.debugLine="Sub Tapsell_onError (zoneId As String, error As St";
+ //BA.debugLineNum = 102;BA.debugLine="Msgbox(\"Error\",\"Tapsell\")";
 anywheresoftware.b4a.keywords.Common.Msgbox("Error","Tapsell",mostCurrent.activityBA);
- //BA.debugLineNum = 99;BA.debugLine="request_button.Enabled = True";
+ //BA.debugLineNum = 103;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 100;BA.debugLine="show_button.Enabled = False";
+ //BA.debugLineNum = 104;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 101;BA.debugLine="End Sub";
+ //BA.debugLineNum = 105;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onexpiring(String _zoneid,String _adid) throws Exception{
- //BA.debugLineNum = 103;BA.debugLine="Sub Tapsell_onExpiring (zoneId As String, adId As";
- //BA.debugLineNum = 104;BA.debugLine="ad = Null";
+ //BA.debugLineNum = 107;BA.debugLine="Sub Tapsell_onExpiring (zoneId As String, adId As";
+ //BA.debugLineNum = 108;BA.debugLine="ad = Null";
 mostCurrent._ad = BA.ObjectToString(anywheresoftware.b4a.keywords.Common.Null);
- //BA.debugLineNum = 105;BA.debugLine="request_button.Enabled = True";
+ //BA.debugLineNum = 109;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 106;BA.debugLine="show_button.Enabled = False";
+ //BA.debugLineNum = 110;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 107;BA.debugLine="End Sub";
+ //BA.debugLineNum = 111;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onnoadavailable(String _zoneid) throws Exception{
- //BA.debugLineNum = 85;BA.debugLine="Sub Tapsell_onNoAdAvailable (zoneId As String)";
- //BA.debugLineNum = 86;BA.debugLine="Msgbox(\"NoAdAvailable\",\"Tapsell\")";
+ //BA.debugLineNum = 89;BA.debugLine="Sub Tapsell_onNoAdAvailable (zoneId As String)";
+ //BA.debugLineNum = 90;BA.debugLine="Msgbox(\"NoAdAvailable\",\"Tapsell\")";
 anywheresoftware.b4a.keywords.Common.Msgbox("NoAdAvailable","Tapsell",mostCurrent.activityBA);
- //BA.debugLineNum = 87;BA.debugLine="request_button.Enabled = True";
+ //BA.debugLineNum = 91;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 88;BA.debugLine="show_button.Enabled = False";
+ //BA.debugLineNum = 92;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 89;BA.debugLine="End Sub";
+ //BA.debugLineNum = 93;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onnonetwork(String _zoneid) throws Exception{
- //BA.debugLineNum = 91;BA.debugLine="Sub Tapsell_onNoNetwork (zoneId As String)";
- //BA.debugLineNum = 92;BA.debugLine="Msgbox(\"NoNetwork\",\"Tapsell\")";
+ //BA.debugLineNum = 95;BA.debugLine="Sub Tapsell_onNoNetwork (zoneId As String)";
+ //BA.debugLineNum = 96;BA.debugLine="Msgbox(\"NoNetwork\",\"Tapsell\")";
 anywheresoftware.b4a.keywords.Common.Msgbox("NoNetwork","Tapsell",mostCurrent.activityBA);
- //BA.debugLineNum = 93;BA.debugLine="request_button.Enabled = True";
+ //BA.debugLineNum = 97;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 94;BA.debugLine="show_button.Enabled = False";
+ //BA.debugLineNum = 98;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 95;BA.debugLine="End Sub";
+ //BA.debugLineNum = 99;BA.debugLine="End Sub";
 return "";
 }
 }
