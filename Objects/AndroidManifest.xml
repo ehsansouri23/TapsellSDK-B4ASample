@@ -34,6 +34,13 @@
 			</intent-filter>
 			
 		</activity>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".nativeacivity"
+			android:label="Tapsell B4A Sample"
+			android:screenOrientation="unspecified">
+		</activity>
 		<service android:name=".starter">
 		</service>
 		<receiver android:name=".starter$starter_BR">

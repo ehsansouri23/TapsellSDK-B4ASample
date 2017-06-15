@@ -1,11 +1,14 @@
-﻿Version=6.5
-NumberOfModules=1
-Module1=Starter
+﻿Version=6.8
+NumberOfModules=2
+Module1=NativeAcivity
+Module2=Starter
 Build1=Default,ir.tapsell.b4asample
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>~\n~<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>~\n~<uses-permission android:name="android.permission.INTERNET"/>~\n~<uses-permission android:name="android.permission.READ_PHONE_STATE"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddApplicationText(~\n~        <!-- Required Activity -->~\n~        <activity~\n~            android:name="ir.tapsell.sdk.TapsellAdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>~\n~        )
 IconFile=
-NumberOfFiles=1
-File1=bkoodb.ttf
+NumberOfFiles=3
+File1=adLayout.bal
+File2=bkoodb.ttf
+File3=TapsellAdLayout.bal
 NumberOfLibraries=2
 Library1=core
 Library2=tapsellsdk
@@ -24,7 +27,7 @@ Library2=tapsellsdk
 	#FullScreen: False
 	#IncludeTitle: True
 	#AdditionalJar : gson-2.8.0.jar
-    #AdditionalJar : tapsell-b4a-3.0.19.jar
+    #AdditionalJar : tapsell-b4a-3.0.24.jar
 #End Region
 
 Sub Process_Globals
@@ -37,7 +40,7 @@ Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	'These variables can only be accessed from this module.
 	Private tapsell As Tapsell
-	Dim request_button , show_button As Button
+	Dim request_button , show_button , native_button As Button
 	Private ad As String
 	Private coins As Int
 	Private videoViewed As Boolean
@@ -49,7 +52,7 @@ Sub Activity_Create(FirstTime As Boolean)
 	coins = 0
 	tapsell.initialize("gfmkmttpomfmgtsjmmagbdmeesdioapomfqirteitgkgqndlmjoaqekdplhbpabqfafaib")
 	tapsell.DebugMode = True
-	request_button.initialize("request_button")
+	request_button.Initialize("request_button")
 	show_button.Initialize("show_button")
 	Activity.AddView(request_button,0,0,50%x,20%y)
 	Activity.AddView(show_button,50%x,0,50%x,20%y)
@@ -57,6 +60,10 @@ Sub Activity_Create(FirstTime As Boolean)
 	show_button.Text = "Show Ad"
 	show_button.Enabled = False
 	request_button.Enabled = True
+	
+	native_button.Initialize("native_button")
+	Activity.AddView(native_button, 0, 20%y, 100%x, 20%y)
+	native_button.Text = "Show Native Ads"
 	
 End Sub
 
@@ -81,6 +88,10 @@ Sub show_button_Click
 	tapsell.showAd(ad,False,False,tapsell.ROTATION_UNLOCKED,True)
 	show_button.Enabled = False
 	request_button.Enabled = True
+End Sub
+
+Sub native_button_Click
+	StartActivity(NativeAcivity)
 End Sub
 
 Sub Tapsell_onAdShowFinished (zoneId As String, adId As String, completed As Boolean, rewarded As Boolean)
