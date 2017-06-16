@@ -45,5 +45,12 @@
 		</service>
 		<receiver android:name=".starter$starter_BR">
 		</receiver>
+		<activity
+			android:windowSoftInputMode="stateHidden"
+			android:launchMode="singleTop"
+			android:name=".nativeactivity2"
+			android:label="Tapsell B4A Sample"
+			android:screenOrientation="unspecified">
+		</activity>
 	</application>
 </manifest>
