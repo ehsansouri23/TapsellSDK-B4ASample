@@ -324,20 +324,23 @@ public anywheresoftware.b4a.keywords.Common __c = null;
 public ir.tapsell.sdk.b4a.Tapsell _tapsell = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _request_button = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _show_button = null;
-public anywheresoftware.b4a.objects.ButtonWrapper _native_button = null;
+public anywheresoftware.b4a.objects.ButtonWrapper _native_banner = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _native_ad_list = null;
+public anywheresoftware.b4a.objects.ButtonWrapper _native_video = null;
 public static String _ad = "";
 public static int _coins = 0;
 public static boolean _videoviewed = false;
 public ir.tapsell.b4asample.nativeacivity _nativeacivity = null;
-public ir.tapsell.b4asample.starter _starter = null;
 public ir.tapsell.b4asample.nativeactivity2 _nativeactivity2 = null;
+public ir.tapsell.b4asample.nativevideoactivity _nativevideoactivity = null;
+public ir.tapsell.b4asample.starter _starter = null;
 
 public static boolean isAnyActivityVisible() {
     boolean vis = false;
 vis = vis | (main.mostCurrent != null);
 vis = vis | (nativeacivity.mostCurrent != null);
 vis = vis | (nativeactivity2.mostCurrent != null);
+vis = vis | (nativevideoactivity.mostCurrent != null);
 return vis;}
 public static String  _activity_create(boolean _firsttime) throws Exception{
  //BA.debugLineNum = 34;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
@@ -363,49 +366,56 @@ mostCurrent._show_button.setText(BA.ObjectToCharSequence("Show Ad"));
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
  //BA.debugLineNum = 47;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 49;BA.debugLine="native_button.Initialize(\"native_button\")";
-mostCurrent._native_button.Initialize(mostCurrent.activityBA,"native_button");
- //BA.debugLineNum = 50;BA.debugLine="Activity.AddView(native_button, 0, 20%y, 100%x, 2";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._native_button.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (20),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (20),mostCurrent.activityBA));
- //BA.debugLineNum = 51;BA.debugLine="native_button.Text = \"Show Native Ads\"";
-mostCurrent._native_button.setText(BA.ObjectToCharSequence("Show Native Ads"));
+ //BA.debugLineNum = 49;BA.debugLine="native_banner.Initialize(\"native_banner\")";
+mostCurrent._native_banner.Initialize(mostCurrent.activityBA,"native_banner");
+ //BA.debugLineNum = 50;BA.debugLine="Activity.AddView(native_banner, 0, 20%y, 100%x, 2";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._native_banner.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (20),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (20),mostCurrent.activityBA));
+ //BA.debugLineNum = 51;BA.debugLine="native_banner.Text = \"Show Native Banner Ad\"";
+mostCurrent._native_banner.setText(BA.ObjectToCharSequence("Show Native Banner Ad"));
  //BA.debugLineNum = 53;BA.debugLine="native_ad_list.Initialize(\"native_ad_list\")";
 mostCurrent._native_ad_list.Initialize(mostCurrent.activityBA,"native_ad_list");
  //BA.debugLineNum = 54;BA.debugLine="Activity.AddView(native_ad_list,0,40%y,100%x,20%y";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._native_ad_list.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (40),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (20),mostCurrent.activityBA));
  //BA.debugLineNum = 55;BA.debugLine="native_ad_list.Text = \"Native Bottom Banner Ad\"";
 mostCurrent._native_ad_list.setText(BA.ObjectToCharSequence("Native Bottom Banner Ad"));
- //BA.debugLineNum = 57;BA.debugLine="End Sub";
+ //BA.debugLineNum = 57;BA.debugLine="native_video.Initialize(\"native_video\")";
+mostCurrent._native_video.Initialize(mostCurrent.activityBA,"native_video");
+ //BA.debugLineNum = 58;BA.debugLine="native_video.Text = \"Show Native Video Ad\"";
+mostCurrent._native_video.setText(BA.ObjectToCharSequence("Show Native Video Ad"));
+ //BA.debugLineNum = 59;BA.debugLine="Activity.AddView(native_video,0,60%y,100%x,20%y)";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._native_video.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (60),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (20),mostCurrent.activityBA));
+ //BA.debugLineNum = 61;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 67;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 69;BA.debugLine="End Sub";
+ //BA.debugLineNum = 71;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+ //BA.debugLineNum = 73;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 59;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 60;BA.debugLine="If videoViewed=True Then";
+ //BA.debugLineNum = 63;BA.debugLine="Sub Activity_Resume";
+ //BA.debugLineNum = 64;BA.debugLine="If videoViewed=True Then";
 if (_videoviewed==anywheresoftware.b4a.keywords.Common.True) { 
- //BA.debugLineNum = 61;BA.debugLine="videoViewed=False";
+ //BA.debugLineNum = 65;BA.debugLine="videoViewed=False";
 _videoviewed = anywheresoftware.b4a.keywords.Common.False;
- //BA.debugLineNum = 62;BA.debugLine="ToastMessageShow(\"You received 1 Coin for watchi";
+ //BA.debugLineNum = 66;BA.debugLine="ToastMessageShow(\"You received 1 Coin for watchi";
 anywheresoftware.b4a.keywords.Common.ToastMessageShow(BA.ObjectToCharSequence("You received 1 Coin for watching video!"),anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 63;BA.debugLine="coins = coins + 1";
+ //BA.debugLineNum = 67;BA.debugLine="coins = coins + 1";
 _coins = (int) (_coins+1);
  };
- //BA.debugLineNum = 65;BA.debugLine="End Sub";
+ //BA.debugLineNum = 69;BA.debugLine="End Sub";
 return "";
 }
 public static String  _globals() throws Exception{
  //BA.debugLineNum = 24;BA.debugLine="Sub Globals";
  //BA.debugLineNum = 27;BA.debugLine="Private tapsell As Tapsell";
 mostCurrent._tapsell = new ir.tapsell.sdk.b4a.Tapsell();
- //BA.debugLineNum = 28;BA.debugLine="Dim request_button , show_button , native_button,";
+ //BA.debugLineNum = 28;BA.debugLine="Dim request_button , show_button , native_banner,";
 mostCurrent._request_button = new anywheresoftware.b4a.objects.ButtonWrapper();
 mostCurrent._show_button = new anywheresoftware.b4a.objects.ButtonWrapper();
-mostCurrent._native_button = new anywheresoftware.b4a.objects.ButtonWrapper();
+mostCurrent._native_banner = new anywheresoftware.b4a.objects.ButtonWrapper();
 mostCurrent._native_ad_list = new anywheresoftware.b4a.objects.ButtonWrapper();
+mostCurrent._native_video = new anywheresoftware.b4a.objects.ButtonWrapper();
  //BA.debugLineNum = 29;BA.debugLine="Private ad As String";
 mostCurrent._ad = "";
  //BA.debugLineNum = 30;BA.debugLine="Private coins As Int";
@@ -416,17 +426,24 @@ _videoviewed = false;
 return "";
 }
 public static String  _native_ad_list_click() throws Exception{
- //BA.debugLineNum = 86;BA.debugLine="Sub native_ad_list_Click";
- //BA.debugLineNum = 87;BA.debugLine="StartActivity(NativeActivity2)";
+ //BA.debugLineNum = 90;BA.debugLine="Sub native_ad_list_Click";
+ //BA.debugLineNum = 91;BA.debugLine="StartActivity(NativeActivity2)";
 anywheresoftware.b4a.keywords.Common.StartActivity(mostCurrent.activityBA,(Object)(mostCurrent._nativeactivity2.getObject()));
+ //BA.debugLineNum = 92;BA.debugLine="End Sub";
+return "";
+}
+public static String  _native_banner_click() throws Exception{
+ //BA.debugLineNum = 86;BA.debugLine="Sub native_banner_Click";
+ //BA.debugLineNum = 87;BA.debugLine="StartActivity(NativeAcivity)";
+anywheresoftware.b4a.keywords.Common.StartActivity(mostCurrent.activityBA,(Object)(mostCurrent._nativeacivity.getObject()));
  //BA.debugLineNum = 88;BA.debugLine="End Sub";
 return "";
 }
-public static String  _native_button_click() throws Exception{
- //BA.debugLineNum = 82;BA.debugLine="Sub native_button_Click";
- //BA.debugLineNum = 83;BA.debugLine="StartActivity(NativeAcivity)";
-anywheresoftware.b4a.keywords.Common.StartActivity(mostCurrent.activityBA,(Object)(mostCurrent._nativeacivity.getObject()));
- //BA.debugLineNum = 84;BA.debugLine="End Sub";
+public static String  _native_video_click() throws Exception{
+ //BA.debugLineNum = 94;BA.debugLine="Sub native_video_Click";
+ //BA.debugLineNum = 95;BA.debugLine="StartActivity(NativeVideoActivity)";
+anywheresoftware.b4a.keywords.Common.StartActivity(mostCurrent.activityBA,(Object)(mostCurrent._nativevideoactivity.getObject()));
+ //BA.debugLineNum = 96;BA.debugLine="End Sub";
 return "";
 }
 
@@ -437,8 +454,9 @@ public static void initializeProcessGlobals() {
 		try {
 		        main._process_globals();
 nativeacivity._process_globals();
-starter._process_globals();
 nativeactivity2._process_globals();
+nativevideoactivity._process_globals();
+starter._process_globals();
 		
         } catch (Exception e) {
 			throw new RuntimeException(e);
@@ -450,93 +468,93 @@ nativeactivity2._process_globals();
 return "";
 }
 public static String  _request_button_click() throws Exception{
- //BA.debugLineNum = 71;BA.debugLine="Sub request_button_Click";
- //BA.debugLineNum = 72;BA.debugLine="tapsell.requestAd(\"587f498846846531e1afa37c\",True";
+ //BA.debugLineNum = 75;BA.debugLine="Sub request_button_Click";
+ //BA.debugLineNum = 76;BA.debugLine="tapsell.requestAd(\"587f498846846531e1afa37c\",True";
 mostCurrent._tapsell.requestAd("587f498846846531e1afa37c",anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 73;BA.debugLine="request_button.Enabled = False";
+ //BA.debugLineNum = 77;BA.debugLine="request_button.Enabled = False";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 74;BA.debugLine="End Sub";
+ //BA.debugLineNum = 78;BA.debugLine="End Sub";
 return "";
 }
 public static String  _show_button_click() throws Exception{
- //BA.debugLineNum = 76;BA.debugLine="Sub show_button_Click";
- //BA.debugLineNum = 77;BA.debugLine="tapsell.showAd(ad,False,False,tapsell.ROTATION_UN";
+ //BA.debugLineNum = 80;BA.debugLine="Sub show_button_Click";
+ //BA.debugLineNum = 81;BA.debugLine="tapsell.showAd(ad,False,False,tapsell.ROTATION_UN";
 mostCurrent._tapsell.showAd(mostCurrent._ad,anywheresoftware.b4a.keywords.Common.False,anywheresoftware.b4a.keywords.Common.False,mostCurrent._tapsell.ROTATION_UNLOCKED,anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 78;BA.debugLine="show_button.Enabled = False";
+ //BA.debugLineNum = 82;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 79;BA.debugLine="request_button.Enabled = True";
+ //BA.debugLineNum = 83;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 80;BA.debugLine="End Sub";
+ //BA.debugLineNum = 84;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onadavailable(String _zoneid,String _adid) throws Exception{
- //BA.debugLineNum = 99;BA.debugLine="Sub Tapsell_onAdAvailable (zoneId As String, adId";
- //BA.debugLineNum = 100;BA.debugLine="show_button.Enabled = True";
+ //BA.debugLineNum = 107;BA.debugLine="Sub Tapsell_onAdAvailable (zoneId As String, adId";
+ //BA.debugLineNum = 108;BA.debugLine="show_button.Enabled = True";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 101;BA.debugLine="request_button.Enabled = False";
+ //BA.debugLineNum = 109;BA.debugLine="request_button.Enabled = False";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 102;BA.debugLine="ad = adId";
+ //BA.debugLineNum = 110;BA.debugLine="ad = adId";
 mostCurrent._ad = _adid;
- //BA.debugLineNum = 103;BA.debugLine="End Sub";
+ //BA.debugLineNum = 111;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onadshowfinished(String _zoneid,String _adid,boolean _completed,boolean _rewarded) throws Exception{
- //BA.debugLineNum = 90;BA.debugLine="Sub Tapsell_onAdShowFinished (zoneId As String, ad";
- //BA.debugLineNum = 91;BA.debugLine="Log(\"onAdShowFinished\")";
+ //BA.debugLineNum = 98;BA.debugLine="Sub Tapsell_onAdShowFinished (zoneId As String, ad";
+ //BA.debugLineNum = 99;BA.debugLine="Log(\"onAdShowFinished\")";
 anywheresoftware.b4a.keywords.Common.Log("onAdShowFinished");
- //BA.debugLineNum = 92;BA.debugLine="If completed=True Then";
+ //BA.debugLineNum = 100;BA.debugLine="If completed=True Then";
 if (_completed==anywheresoftware.b4a.keywords.Common.True) { 
- //BA.debugLineNum = 93;BA.debugLine="If rewarded=True Then";
+ //BA.debugLineNum = 101;BA.debugLine="If rewarded=True Then";
 if (_rewarded==anywheresoftware.b4a.keywords.Common.True) { 
- //BA.debugLineNum = 94;BA.debugLine="videoViewed = True";
+ //BA.debugLineNum = 102;BA.debugLine="videoViewed = True";
 _videoviewed = anywheresoftware.b4a.keywords.Common.True;
  };
  };
- //BA.debugLineNum = 97;BA.debugLine="End Sub";
+ //BA.debugLineNum = 105;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onerror(String _zoneid,String _error) throws Exception{
- //BA.debugLineNum = 117;BA.debugLine="Sub Tapsell_onError (zoneId As String, error As St";
- //BA.debugLineNum = 118;BA.debugLine="Msgbox(\"Error\",\"Tapsell\")";
+ //BA.debugLineNum = 125;BA.debugLine="Sub Tapsell_onError (zoneId As String, error As St";
+ //BA.debugLineNum = 126;BA.debugLine="Msgbox(\"Error\",\"Tapsell\")";
 anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("Error"),BA.ObjectToCharSequence("Tapsell"),mostCurrent.activityBA);
- //BA.debugLineNum = 119;BA.debugLine="request_button.Enabled = True";
+ //BA.debugLineNum = 127;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 120;BA.debugLine="show_button.Enabled = False";
+ //BA.debugLineNum = 128;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 121;BA.debugLine="End Sub";
+ //BA.debugLineNum = 129;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onexpiring(String _zoneid,String _adid) throws Exception{
- //BA.debugLineNum = 123;BA.debugLine="Sub Tapsell_onExpiring (zoneId As String, adId As";
- //BA.debugLineNum = 124;BA.debugLine="ad = Null";
+ //BA.debugLineNum = 131;BA.debugLine="Sub Tapsell_onExpiring (zoneId As String, adId As";
+ //BA.debugLineNum = 132;BA.debugLine="ad = Null";
 mostCurrent._ad = BA.ObjectToString(anywheresoftware.b4a.keywords.Common.Null);
- //BA.debugLineNum = 125;BA.debugLine="request_button.Enabled = True";
+ //BA.debugLineNum = 133;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 126;BA.debugLine="show_button.Enabled = False";
+ //BA.debugLineNum = 134;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 127;BA.debugLine="End Sub";
+ //BA.debugLineNum = 135;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onnoadavailable(String _zoneid) throws Exception{
- //BA.debugLineNum = 105;BA.debugLine="Sub Tapsell_onNoAdAvailable (zoneId As String)";
- //BA.debugLineNum = 106;BA.debugLine="Msgbox(\"NoAdAvailable\",\"Tapsell\")";
+ //BA.debugLineNum = 113;BA.debugLine="Sub Tapsell_onNoAdAvailable (zoneId As String)";
+ //BA.debugLineNum = 114;BA.debugLine="Msgbox(\"NoAdAvailable\",\"Tapsell\")";
 anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("NoAdAvailable"),BA.ObjectToCharSequence("Tapsell"),mostCurrent.activityBA);
- //BA.debugLineNum = 107;BA.debugLine="request_button.Enabled = True";
+ //BA.debugLineNum = 115;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 108;BA.debugLine="show_button.Enabled = False";
+ //BA.debugLineNum = 116;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 109;BA.debugLine="End Sub";
+ //BA.debugLineNum = 117;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onnonetwork(String _zoneid) throws Exception{
- //BA.debugLineNum = 111;BA.debugLine="Sub Tapsell_onNoNetwork (zoneId As String)";
- //BA.debugLineNum = 112;BA.debugLine="Msgbox(\"NoNetwork\",\"Tapsell\")";
+ //BA.debugLineNum = 119;BA.debugLine="Sub Tapsell_onNoNetwork (zoneId As String)";
+ //BA.debugLineNum = 120;BA.debugLine="Msgbox(\"NoNetwork\",\"Tapsell\")";
 anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("NoNetwork"),BA.ObjectToCharSequence("Tapsell"),mostCurrent.activityBA);
- //BA.debugLineNum = 113;BA.debugLine="request_button.Enabled = True";
+ //BA.debugLineNum = 121;BA.debugLine="request_button.Enabled = True";
 mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 114;BA.debugLine="show_button.Enabled = False";
+ //BA.debugLineNum = 122;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
- //BA.debugLineNum = 115;BA.debugLine="End Sub";
+ //BA.debugLineNum = 123;BA.debugLine="End Sub";
 return "";
 }
 }

@@ -14,8 +14,8 @@ import anywheresoftware.b4a.B4AUncaughtException;
 import anywheresoftware.b4a.debug.*;
 import java.lang.ref.WeakReference;
 
-public class nativeacivity extends Activity implements B4AActivity{
-	public static nativeacivity mostCurrent;
+public class nativevideoactivity extends Activity implements B4AActivity{
+	public static nativevideoactivity mostCurrent;
 	static boolean afterFirstLayout;
 	static boolean isFirst = true;
     private static boolean processGlobalsRun = false;
@@ -32,7 +32,7 @@ public class nativeacivity extends Activity implements B4AActivity{
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		if (isFirst) {
-			processBA = new BA(this.getApplicationContext(), null, null, "ir.tapsell.b4asample", "ir.tapsell.b4asample.nativeacivity");
+			processBA = new BA(this.getApplicationContext(), null, null, "ir.tapsell.b4asample", "ir.tapsell.b4asample.nativevideoactivity");
 			processBA.loadHtSubs(this.getClass());
 	        float deviceScale = getApplicationContext().getResources().getDisplayMetrics().density;
 	        BALayout.setDeviceScale(deviceScale);
@@ -41,7 +41,7 @@ public class nativeacivity extends Activity implements B4AActivity{
 		else if (previousOne != null) {
 			Activity p = previousOne.get();
 			if (p != null && p != this) {
-                BA.LogInfo("Killing previous instance (nativeacivity).");
+                BA.LogInfo("Killing previous instance (nativevideoactivity).");
 				p.finish();
 			}
 		}
@@ -83,7 +83,7 @@ public class nativeacivity extends Activity implements B4AActivity{
 	private void afterFirstLayout() {
         if (this != mostCurrent)
 			return;
-		activityBA = new BA(this, layout, processBA, "ir.tapsell.b4asample", "ir.tapsell.b4asample.nativeacivity");
+		activityBA = new BA(this, layout, processBA, "ir.tapsell.b4asample", "ir.tapsell.b4asample.nativevideoactivity");
         
         processBA.sharedProcessBA.activityBA = new java.lang.ref.WeakReference<BA>(activityBA);
         anywheresoftware.b4a.objects.ViewWrapper.lastId = 0;
@@ -92,19 +92,19 @@ public class nativeacivity extends Activity implements B4AActivity{
         if (BA.isShellModeRuntimeCheck(processBA)) {
 			if (isFirst)
 				processBA.raiseEvent2(null, true, "SHELL", false);
-			processBA.raiseEvent2(null, true, "CREATE", true, "ir.tapsell.b4asample.nativeacivity", processBA, activityBA, _activity, anywheresoftware.b4a.keywords.Common.Density, mostCurrent);
+			processBA.raiseEvent2(null, true, "CREATE", true, "ir.tapsell.b4asample.nativevideoactivity", processBA, activityBA, _activity, anywheresoftware.b4a.keywords.Common.Density, mostCurrent);
 			_activity.reinitializeForShell(activityBA, "activity");
 		}
         initializeProcessGlobals();		
         initializeGlobals();
         
-        BA.LogInfo("** Activity (nativeacivity) Create, isFirst = " + isFirst + " **");
+        BA.LogInfo("** Activity (nativevideoactivity) Create, isFirst = " + isFirst + " **");
         processBA.raiseEvent2(null, true, "activity_create", false, isFirst);
 		isFirst = false;
 		if (this != mostCurrent)
 			return;
         processBA.setActivityPaused(false);
-        BA.LogInfo("** Activity (nativeacivity) Resume **");
+        BA.LogInfo("** Activity (nativevideoactivity) Resume **");
         processBA.raiseEvent(null, "activity_resume");
         if (android.os.Build.VERSION.SDK_INT >= 11) {
 			try {
@@ -193,7 +193,7 @@ public class nativeacivity extends Activity implements B4AActivity{
 		}
 	}
     public static Class<?> getObject() {
-		return nativeacivity.class;
+		return nativevideoactivity.class;
 	}
     private Boolean onKeySubExist = null;
     private Boolean onKeyUpSubExist = null;
@@ -262,7 +262,7 @@ public class nativeacivity extends Activity implements B4AActivity{
         if (_activity == null) //workaround for emulator bug (Issue 2423)
             return;
 		anywheresoftware.b4a.Msgbox.dismiss(true);
-        BA.LogInfo("** Activity (nativeacivity) Pause, UserClosed = " + activityBA.activity.isFinishing() + " **");
+        BA.LogInfo("** Activity (nativevideoactivity) Pause, UserClosed = " + activityBA.activity.isFinishing() + " **");
         processBA.raiseEvent2(_activity, true, "activity_pause", false, activityBA.activity.isFinishing());		
         processBA.setActivityPaused(true);
         mostCurrent = null;
@@ -298,7 +298,7 @@ public class nativeacivity extends Activity implements B4AActivity{
 			if (mostCurrent == null || mostCurrent != activity.get())
 				return;
 			processBA.setActivityPaused(false);
-            BA.LogInfo("** Activity (nativeacivity) Resume **");
+            BA.LogInfo("** Activity (nativevideoactivity) Resume **");
 		    processBA.raiseEvent(mostCurrent._activity, "activity_resume", (Object[])null);
 		}
     }
@@ -322,16 +322,16 @@ public class nativeacivity extends Activity implements B4AActivity{
 
 public anywheresoftware.b4a.keywords.Common __c = null;
 public ir.tapsell.sdk.b4a.Tapsell _tapsell = null;
+public anywheresoftware.b4a.objects.PanelWrapper _adpanel = null;
 public anywheresoftware.b4a.objects.ButtonWrapper _btncalltoaction = null;
-public anywheresoftware.b4a.objects.ImageViewWrapper _ivbanner = null;
 public anywheresoftware.b4a.objects.ImageViewWrapper _ivlogo = null;
+public anywheresoftware.b4a.objects.LabelWrapper _lbldescription = null;
 public anywheresoftware.b4a.objects.LabelWrapper _lbltitle = null;
 public anywheresoftware.b4a.objects.LabelWrapper _lblsponsored = null;
-public anywheresoftware.b4a.objects.LabelWrapper _lbldescription = null;
-public anywheresoftware.b4a.objects.PanelWrapper _adpanel = null;
+public anywheresoftware.b4a.objects.PanelWrapper _pvideocontainer = null;
 public ir.tapsell.b4asample.main _main = null;
+public ir.tapsell.b4asample.nativeacivity _nativeacivity = null;
 public ir.tapsell.b4asample.nativeactivity2 _nativeactivity2 = null;
-public ir.tapsell.b4asample.nativevideoactivity _nativevideoactivity = null;
 public ir.tapsell.b4asample.starter _starter = null;
 
 public static void initializeProcessGlobals() {
@@ -343,14 +343,14 @@ public static void initializeProcessGlobals() {
 }
 public static String  _activity_create(boolean _firsttime) throws Exception{
  //BA.debugLineNum = 25;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
- //BA.debugLineNum = 27;BA.debugLine="Activity.LoadLayout(\"TapsellAdLayout\")";
-mostCurrent._activity.LoadLayout("TapsellAdLayout",mostCurrent.activityBA);
+ //BA.debugLineNum = 27;BA.debugLine="Activity.LoadLayout(\"TapsellNativeVideoAdLayout\")";
+mostCurrent._activity.LoadLayout("TapsellNativeVideoAdLayout",mostCurrent.activityBA);
  //BA.debugLineNum = 28;BA.debugLine="tapsell.initialize(\"gfmkmttpomfmgtsjmmagbdmeesdio";
 mostCurrent._tapsell.initialize(mostCurrent.activityBA,"gfmkmttpomfmgtsjmmagbdmeesdioapomfqirteitgkgqndlmjoaqekdplhbpabqfafaib");
  //BA.debugLineNum = 29;BA.debugLine="tapsell.DebugMode = True";
 mostCurrent._tapsell.setDebugMode(anywheresoftware.b4a.keywords.Common.True);
- //BA.debugLineNum = 31;BA.debugLine="tapsell.requestNativeBannerAd(\"5943a6474684652bd8";
-mostCurrent._tapsell.requestNativeBannerAd("5943a6474684652bd8fc126d");
+ //BA.debugLineNum = 31;BA.debugLine="tapsell.requestNativeVideoAd(\"5944fd264684653e528";
+mostCurrent._tapsell.requestNativeVideoAd("5944fd264684653e528d8fd2");
  //BA.debugLineNum = 38;BA.debugLine="End Sub";
 return "";
 }
@@ -368,20 +368,20 @@ public static String  _globals() throws Exception{
  //BA.debugLineNum = 12;BA.debugLine="Sub Globals";
  //BA.debugLineNum = 15;BA.debugLine="Private tapsell As Tapsell";
 mostCurrent._tapsell = new ir.tapsell.sdk.b4a.Tapsell();
- //BA.debugLineNum = 16;BA.debugLine="Private btnCallToAction As Button";
+ //BA.debugLineNum = 16;BA.debugLine="Private AdPanel As Panel";
+mostCurrent._adpanel = new anywheresoftware.b4a.objects.PanelWrapper();
+ //BA.debugLineNum = 17;BA.debugLine="Private btnCallToAction As Button";
 mostCurrent._btncalltoaction = new anywheresoftware.b4a.objects.ButtonWrapper();
- //BA.debugLineNum = 17;BA.debugLine="Private ivBanner As ImageView";
-mostCurrent._ivbanner = new anywheresoftware.b4a.objects.ImageViewWrapper();
  //BA.debugLineNum = 18;BA.debugLine="Private ivLogo As ImageView";
 mostCurrent._ivlogo = new anywheresoftware.b4a.objects.ImageViewWrapper();
- //BA.debugLineNum = 19;BA.debugLine="Private lblTitle As Label";
-mostCurrent._lbltitle = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 20;BA.debugLine="Private lblSponsored As Label";
-mostCurrent._lblsponsored = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 21;BA.debugLine="Private lblDescription As Label";
+ //BA.debugLineNum = 19;BA.debugLine="Private lblDescription As Label";
 mostCurrent._lbldescription = new anywheresoftware.b4a.objects.LabelWrapper();
- //BA.debugLineNum = 22;BA.debugLine="Private AdPanel As Panel";
-mostCurrent._adpanel = new anywheresoftware.b4a.objects.PanelWrapper();
+ //BA.debugLineNum = 20;BA.debugLine="Private lblTitle As Label";
+mostCurrent._lbltitle = new anywheresoftware.b4a.objects.LabelWrapper();
+ //BA.debugLineNum = 21;BA.debugLine="Private lblSponsored As Label";
+mostCurrent._lblsponsored = new anywheresoftware.b4a.objects.LabelWrapper();
+ //BA.debugLineNum = 22;BA.debugLine="Private pVideoContainer As Panel";
+mostCurrent._pvideocontainer = new anywheresoftware.b4a.objects.PanelWrapper();
  //BA.debugLineNum = 23;BA.debugLine="End Sub";
 return "";
 }
@@ -399,19 +399,19 @@ anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("Error"),BA.
  //BA.debugLineNum = 59;BA.debugLine="End Sub";
 return "";
 }
-public static String  _tapsell_onnativebanneradavailable(String _zoneid,String _adid) throws Exception{
- //BA.debugLineNum = 40;BA.debugLine="Sub Tapsell_onNativeBannerAdAvailable (zoneId As S";
+public static String  _tapsell_onnativevideoadavailable(String _zoneid,String _adid) throws Exception{
+ //BA.debugLineNum = 40;BA.debugLine="Sub Tapsell_onNativeVideoAdAvailable (zoneId As St";
  //BA.debugLineNum = 41;BA.debugLine="Log(\"Tapsell_onNativeAdAvailable\")";
 anywheresoftware.b4a.keywords.Common.Log("Tapsell_onNativeAdAvailable");
- //BA.debugLineNum = 42;BA.debugLine="tapsell.fillNativeBannerAd(adId,lblTitle,lblDescr";
-mostCurrent._tapsell.fillNativeBannerAd(_adid,(android.widget.TextView)(mostCurrent._lbltitle.getObject()),(android.widget.TextView)(mostCurrent._lbldescription.getObject()),(android.widget.ImageView)(mostCurrent._ivbanner.getObject()),(android.widget.ImageView)(mostCurrent._ivlogo.getObject()),(android.widget.TextView)(mostCurrent._btncalltoaction.getObject()),(android.widget.TextView)(mostCurrent._lblsponsored.getObject()));
+ //BA.debugLineNum = 42;BA.debugLine="tapsell.fillNativeVideoAd(adId,True,True,lblTitle";
+mostCurrent._tapsell.fillNativeVideoAd(_adid,anywheresoftware.b4a.keywords.Common.True,anywheresoftware.b4a.keywords.Common.True,(android.widget.TextView)(mostCurrent._lbltitle.getObject()),(android.widget.TextView)(mostCurrent._lbldescription.getObject()),(android.view.ViewGroup)(mostCurrent._pvideocontainer.getObject()),(android.widget.ImageView)(mostCurrent._ivlogo.getObject()),(android.widget.TextView)(mostCurrent._btncalltoaction.getObject()),(android.widget.TextView)(mostCurrent._lblsponsored.getObject()));
  //BA.debugLineNum = 43;BA.debugLine="AdPanel.Visible = True";
 mostCurrent._adpanel.setVisible(anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 44;BA.debugLine="End Sub";
 return "";
 }
-public static String  _tapsell_onnonativebanneradavailable(String _zoneid) throws Exception{
- //BA.debugLineNum = 46;BA.debugLine="Sub Tapsell_onNoNativeBannerAdAvailable (zoneId As";
+public static String  _tapsell_onnonativevideoadavailable(String _zoneid) throws Exception{
+ //BA.debugLineNum = 46;BA.debugLine="Sub Tapsell_onNoNativeVideoAdAvailable (zoneId As";
  //BA.debugLineNum = 47;BA.debugLine="Log(\"Tapsell_onNoNativeAdAvailable\")";
 anywheresoftware.b4a.keywords.Common.Log("Tapsell_onNoNativeAdAvailable");
  //BA.debugLineNum = 48;BA.debugLine="Msgbox(\"NoNativeAdAvailable\",\"Tapsell\")";

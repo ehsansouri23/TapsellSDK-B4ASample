@@ -38,10 +38,10 @@ Sub Activity_Create(FirstTime As Boolean)
 		ListView1.AddSingleLine("Item #" & i)
 	Next
 	Activity.AddView(ListView1, 0, 0, 100%x, 100%y)
-	tapsell.requestNativeAd("587f498846846531e1afa37c")
+	tapsell.requestNativeBannerAd("5943a6474684652bd8fc126d")
 End Sub
 
-Sub Tapsell_onNativeAdAvailable (zoneId As String, adId As String)
+Sub Tapsell_onNativeBannerAdAvailable (zoneId As String, adId As String)
 	Log("Tapsell_onNativeAdAvailable")
 	ListView1.Height = 80%y
 	adLogo.Initialize("adLogo")
@@ -66,10 +66,10 @@ Sub Tapsell_onNativeAdAvailable (zoneId As String, adId As String)
 	adPanel.AddView(adCallToAction,5%x,10%y,70%x,10%y)
 	adPanel.AddView(adSponsored,0,0,10%x,5%y)
 	Activity.AddView(adPanel,0,80%y,100%x,20%y)
-	tapsell.fillNativeAd(adId,adTitle,Null,Null,adLogo,adCallToAction,adSponsored)
+	tapsell.fillNativeBannerAd(adId,adTitle,Null,Null,adLogo,adCallToAction,adSponsored)
 End Sub
 
-Sub Tapsell_onNoNativeAdAvailable (zoneId As String)
+Sub Tapsell_onNoNativeBannerAdAvailable (zoneId As String)
 	Log("Tapsell_onNoNativeAdAvailable")
 	Msgbox("NoNativeAdAvailable","Tapsell")
 End Sub

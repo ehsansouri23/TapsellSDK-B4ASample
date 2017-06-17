@@ -332,6 +332,7 @@ public anywheresoftware.b4a.objects.drawable.ColorDrawable _panelbackground = nu
 public anywheresoftware.b4a.objects.drawable.ColorDrawable _sponsoredbackground = null;
 public ir.tapsell.b4asample.main _main = null;
 public ir.tapsell.b4asample.nativeacivity _nativeacivity = null;
+public ir.tapsell.b4asample.nativevideoactivity _nativevideoactivity = null;
 public ir.tapsell.b4asample.starter _starter = null;
 
 public static void initializeProcessGlobals() {
@@ -359,8 +360,8 @@ mostCurrent._listview1.AddSingleLine(BA.ObjectToCharSequence("Item #"+BA.NumberT
 };
  //BA.debugLineNum = 35;BA.debugLine="Activity.AddView(ListView1, 0, 0, 100%x, 100%y)";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._listview1.getObject()),(int) (0),(int) (0),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (100),mostCurrent.activityBA));
- //BA.debugLineNum = 36;BA.debugLine="tapsell.requestNativeAd(\"587f498846846531e1afa37c";
-mostCurrent._tapsell.requestNativeAd("587f498846846531e1afa37c");
+ //BA.debugLineNum = 36;BA.debugLine="tapsell.requestNativeBannerAd(\"5943a6474684652bd8";
+mostCurrent._tapsell.requestNativeBannerAd("5943a6474684652bd8fc126d");
  //BA.debugLineNum = 37;BA.debugLine="End Sub";
 return "";
 }
@@ -411,8 +412,8 @@ anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("Error"),BA.
  //BA.debugLineNum = 80;BA.debugLine="End Sub";
 return "";
 }
-public static String  _tapsell_onnativeadavailable(String _zoneid,String _adid) throws Exception{
- //BA.debugLineNum = 39;BA.debugLine="Sub Tapsell_onNativeAdAvailable (zoneId As String,";
+public static String  _tapsell_onnativebanneradavailable(String _zoneid,String _adid) throws Exception{
+ //BA.debugLineNum = 39;BA.debugLine="Sub Tapsell_onNativeBannerAdAvailable (zoneId As S";
  //BA.debugLineNum = 40;BA.debugLine="Log(\"Tapsell_onNativeAdAvailable\")";
 anywheresoftware.b4a.keywords.Common.Log("Tapsell_onNativeAdAvailable");
  //BA.debugLineNum = 41;BA.debugLine="ListView1.Height = 80%y";
@@ -455,13 +456,13 @@ mostCurrent._adpanel.AddView((android.view.View)(mostCurrent._adcalltoaction.get
 mostCurrent._adpanel.AddView((android.view.View)(mostCurrent._adsponsored.getObject()),(int) (0),(int) (0),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (5),mostCurrent.activityBA));
  //BA.debugLineNum = 63;BA.debugLine="Activity.AddView(adPanel,0,80%y,100%x,20%y)";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._adpanel.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (80),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (20),mostCurrent.activityBA));
- //BA.debugLineNum = 64;BA.debugLine="tapsell.fillNativeAd(adId,adTitle,Null,Null,adLog";
-mostCurrent._tapsell.fillNativeAd(_adid,(android.widget.TextView)(mostCurrent._adtitle.getObject()),(android.widget.TextView)(anywheresoftware.b4a.keywords.Common.Null),(android.widget.ImageView)(anywheresoftware.b4a.keywords.Common.Null),(android.widget.ImageView)(mostCurrent._adlogo.getObject()),(android.widget.TextView)(mostCurrent._adcalltoaction.getObject()),(android.widget.TextView)(mostCurrent._adsponsored.getObject()));
+ //BA.debugLineNum = 64;BA.debugLine="tapsell.fillNativeBannerAd(adId,adTitle,Null,Null";
+mostCurrent._tapsell.fillNativeBannerAd(_adid,(android.widget.TextView)(mostCurrent._adtitle.getObject()),(android.widget.TextView)(anywheresoftware.b4a.keywords.Common.Null),(android.widget.ImageView)(anywheresoftware.b4a.keywords.Common.Null),(android.widget.ImageView)(mostCurrent._adlogo.getObject()),(android.widget.TextView)(mostCurrent._adcalltoaction.getObject()),(android.widget.TextView)(mostCurrent._adsponsored.getObject()));
  //BA.debugLineNum = 65;BA.debugLine="End Sub";
 return "";
 }
-public static String  _tapsell_onnonativeadavailable(String _zoneid) throws Exception{
- //BA.debugLineNum = 67;BA.debugLine="Sub Tapsell_onNoNativeAdAvailable (zoneId As Strin";
+public static String  _tapsell_onnonativebanneradavailable(String _zoneid) throws Exception{
+ //BA.debugLineNum = 67;BA.debugLine="Sub Tapsell_onNoNativeBannerAdAvailable (zoneId As";
  //BA.debugLineNum = 68;BA.debugLine="Log(\"Tapsell_onNoNativeAdAvailable\")";
 anywheresoftware.b4a.keywords.Common.Log("Tapsell_onNoNativeAdAvailable");
  //BA.debugLineNum = 69;BA.debugLine="Msgbox(\"NoNativeAdAvailable\",\"Tapsell\")";

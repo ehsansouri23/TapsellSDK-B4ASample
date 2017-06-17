@@ -125,6 +125,7 @@ public class starter extends  android.app.Service{
 public ir.tapsell.b4asample.main _main = null;
 public ir.tapsell.b4asample.nativeacivity _nativeacivity = null;
 public ir.tapsell.b4asample.nativeactivity2 _nativeactivity2 = null;
+public ir.tapsell.b4asample.nativevideoactivity _nativevideoactivity = null;
 public static boolean  _application_error(anywheresoftware.b4a.objects.B4AException _error,String _stacktrace) throws Exception{
  //BA.debugLineNum = 27;BA.debugLine="Sub Application_Error (Error As Exception, StackTr";
  //BA.debugLineNum = 28;BA.debugLine="Return True";

@@ -1,19 +1,21 @@
 ﻿Version=6.8
-NumberOfModules=3
+NumberOfModules=4
 Module1=NativeAcivity
-Module2=Starter
-Module3=NativeActivity2
+Module2=NativeActivity2
+Module3=NativeVideoActivity
+Module4=Starter
 Build1=Default,ir.tapsell.b4asample
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>~\n~<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>~\n~<uses-permission android:name="android.permission.INTERNET"/>~\n~<uses-permission android:name="android.permission.READ_PHONE_STATE"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddApplicationText(~\n~        <!-- Required Activity -->~\n~        <activity~\n~            android:name="ir.tapsell.sdk.TapsellAdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>~\n~        )
 IconFile=
-NumberOfFiles=2
+NumberOfFiles=3
 File1=bkoodb.ttf
 File2=TapsellAdLayout.bal
+File3=TapsellNativeVideoAdLayout.bal
 NumberOfLibraries=2
 Library1=core
 Library2=tapsellsdk
 @EndOfDesignText@
-#Region  Project Attributes 
+	#Region  Project Attributes 
 	#ApplicationLabel: Tapsell B4A Sample
 	#VersionCode: 1
 	#VersionName: 
@@ -27,7 +29,7 @@ Library2=tapsellsdk
 	#FullScreen: False
 	#IncludeTitle: True
 	#AdditionalJar : gson-2.8.0.jar
-    #AdditionalJar : tapsell-b4a-3.0.24.jar
+    #AdditionalJar : tapsell-b4a-3.0.26.jar
 #End Region
 
 Sub Process_Globals
@@ -40,7 +42,7 @@ Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	'These variables can only be accessed from this module.
 	Private tapsell As Tapsell
-	Dim request_button , show_button , native_button, native_ad_list As Button
+	Dim request_button , show_button , native_banner, native_ad_list, native_video As Button
 	Private ad As String
 	Private coins As Int
 	Private videoViewed As Boolean
@@ -61,13 +63,17 @@ Sub Activity_Create(FirstTime As Boolean)
 	show_button.Enabled = False
 	request_button.Enabled = True
 	
-	native_button.Initialize("native_button")
-	Activity.AddView(native_button, 0, 20%y, 100%x, 20%y)
-	native_button.Text = "Show Native Ads"
+	native_banner.Initialize("native_banner")
+	Activity.AddView(native_banner, 0, 20%y, 100%x, 20%y)
+	native_banner.Text = "Show Native Banner Ad"
 	
 	native_ad_list.Initialize("native_ad_list")
 	Activity.AddView(native_ad_list,0,40%y,100%x,20%y)
 	native_ad_list.Text = "Native Bottom Banner Ad"
+	
+	native_video.Initialize("native_video")
+	native_video.Text = "Show Native Video Ad"
+	Activity.AddView(native_video,0,60%y,100%x,20%y)
 	
 End Sub
 
@@ -94,12 +100,16 @@ Sub show_button_Click
 	request_button.Enabled = True
 End Sub
 
-Sub native_button_Click
+Sub native_banner_Click
 	StartActivity(NativeAcivity)
 End Sub
 
 Sub native_ad_list_Click
 	StartActivity(NativeActivity2)
+End Sub
+
+Sub native_video_Click
+	StartActivity(NativeVideoActivity)
 End Sub
 
 Sub Tapsell_onAdShowFinished (zoneId As String, adId As String, completed As Boolean, rewarded As Boolean)
