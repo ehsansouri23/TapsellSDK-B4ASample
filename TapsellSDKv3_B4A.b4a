@@ -7,15 +7,16 @@ Module4=Starter
 Build1=Default,ir.tapsell.b4asample
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>~\n~<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>~\n~<uses-permission android:name="android.permission.INTERNET"/>~\n~<uses-permission android:name="android.permission.READ_PHONE_STATE"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddApplicationText(~\n~        <!-- Required Activity -->~\n~        <activity~\n~            android:name="ir.tapsell.sdk.TapsellAdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>~\n~        )
 IconFile=
-NumberOfFiles=3
+NumberOfFiles=4
 File1=bkoodb.ttf
-File2=TapsellAdLayout.bal
-File3=TapsellNativeVideoAdLayout.bal
+File2=bottomadlayout.bal
+File3=TapsellAdLayout.bal
+File4=TapsellNativeVideoAdLayout.bal
 NumberOfLibraries=2
 Library1=core
 Library2=tapsellsdk
 @EndOfDesignText@
-	#Region  Project Attributes 
+#Region  Project Attributes 
 	#ApplicationLabel: Tapsell B4A Sample
 	#VersionCode: 1
 	#VersionName: 
@@ -25,11 +26,11 @@ Library2=tapsellsdk
 	#DebuggerForceStandardAssets : true
 #End Region
 
-#Region  Activity Attributes 
+#Region Activity Attributes 
 	#FullScreen: False
 	#IncludeTitle: True
 	#AdditionalJar : gson-2.8.0.jar
-    #AdditionalJar : tapsell-b4a-3.0.26.jar
+    #AdditionalJar : tapsell-b4a-3.0.27.jar
 #End Region
 
 Sub Process_Globals
@@ -150,6 +151,3 @@ Sub Tapsell_onExpiring (zoneId As String, adId As String)
 	request_button.Enabled = True
 	show_button.Enabled = False
 End Sub
-
-
-

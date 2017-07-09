@@ -44,7 +44,7 @@ End Sub
 
 Sub Tapsell_onNativeBannerAdAvailable (zoneId As String, adId As String)
 	Log("Tapsell_onNativeAdAvailable")
-	tapsell.fillNativeBannerAd(adId,lblTitle,lblDescription,ivBanner,ivLogo,btnCallToAction,lblSponsored)
+	tapsell.fillNativeBannerAd(adId,lblTitle,lblDescription,ivBanner,ivLogo,btnCallToAction,lblSponsored,AdPanel)
 	AdPanel.Visible = True
 End Sub
 

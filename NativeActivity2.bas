@@ -27,6 +27,7 @@ Sub Globals
 	
 	Dim panelBackground As ColorDrawable
 	Dim sponsoredBackground As ColorDrawable
+	Dim ctaBackground As ColorDrawable
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -47,26 +48,34 @@ Sub Tapsell_onNativeBannerAdAvailable (zoneId As String, adId As String)
 	adLogo.Initialize("adLogo")
 	adTitle.Initialize("adTitle")
 	adSponsored.Initialize("adSponsored")
-	adCallToAction.Initialize("Button")
+	'adDescription.Initialize("adDescription")
+	adCallToAction.Initialize("adCallToAction")
 	
 	adTitle.TextColor = Colors.Black
 	adTitle.Gravity = Gravity.RIGHT
+	adTitle.Gravity = Gravity.CENTER_VERTICAL
 	adTitle.TextSize = 16
-	adSponsored.TextColor = Colors.Black
+	adCallToAction.TextColor = Colors.Blue
+	adCallToAction.Gravity = Gravity.CENTER
+	adCallToAction.TextSize = 14
+	
+	ctaBackground.Initialize2(Colors.White, 3, 3, Colors.Blue)
+	adCallToAction.Background = ctaBackground
+	adSponsored.TextColor = Colors.White
 	adSponsored.Gravity = Gravity.CENTER_HORIZONTAL
-	sponsoredBackground.Initialize(Colors.LightGray,4)
+	sponsoredBackground.Initialize(Colors.Red,4)
 	adSponsored.Background = sponsoredBackground
 	
-	panelBackground.Initialize(Colors.White,4)
+	panelBackground.Initialize2(Colors.White,4,4,Colors.LightGray)
 	adPanel.Initialize("adPanel")
 	adPanel.Background = panelBackground
 	
-	adPanel.AddView(adLogo,80%x,0,19%x,20%y)
-	adPanel.AddView(adTitle,0,5%y,78%x,10%y)
-	adPanel.AddView(adCallToAction,5%x,10%y,70%x,10%y)
+	adPanel.AddView(adLogo,80%x,0,20%x,15%y)
+	adPanel.AddView(adTitle,0,0%y,78%x,7%y)
+	adPanel.AddView(adCallToAction,5%x,6%y,50%x,8%y)
 	adPanel.AddView(adSponsored,0,0,10%x,5%y)
-	Activity.AddView(adPanel,0,80%y,100%x,20%y)
-	tapsell.fillNativeBannerAd(adId,adTitle,Null,Null,adLogo,adCallToAction,adSponsored)
+	Activity.AddView(adPanel,0,85%y,100%x,15%y)
+	tapsell.fillNativeBannerAd(adId,adTitle,Null,Null,adLogo,adCallToAction,adSponsored,adPanel)
 End Sub
 
 Sub Tapsell_onNoNativeBannerAdAvailable (zoneId As String)

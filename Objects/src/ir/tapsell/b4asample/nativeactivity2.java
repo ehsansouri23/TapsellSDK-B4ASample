@@ -330,6 +330,7 @@ public anywheresoftware.b4a.objects.ButtonWrapper _adcalltoaction = null;
 public anywheresoftware.b4a.objects.PanelWrapper _adpanel = null;
 public anywheresoftware.b4a.objects.drawable.ColorDrawable _panelbackground = null;
 public anywheresoftware.b4a.objects.drawable.ColorDrawable _sponsoredbackground = null;
+public anywheresoftware.b4a.objects.drawable.ColorDrawable _ctabackground = null;
 public ir.tapsell.b4asample.main _main = null;
 public ir.tapsell.b4asample.nativeacivity _nativeacivity = null;
 public ir.tapsell.b4asample.nativevideoactivity _nativevideoactivity = null;
@@ -344,35 +345,35 @@ public static void initializeProcessGlobals() {
 }
 public static String  _activity_create(boolean _firsttime) throws Exception{
 int _i = 0;
- //BA.debugLineNum = 27;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
- //BA.debugLineNum = 30;BA.debugLine="tapsell.initialize(\"gfmkmttpomfmgtsjmmagbdmeesdio";
+ //BA.debugLineNum = 28;BA.debugLine="Sub Activity_Create(FirstTime As Boolean)";
+ //BA.debugLineNum = 31;BA.debugLine="tapsell.initialize(\"gfmkmttpomfmgtsjmmagbdmeesdio";
 mostCurrent._tapsell.initialize(mostCurrent.activityBA,"gfmkmttpomfmgtsjmmagbdmeesdioapomfqirteitgkgqndlmjoaqekdplhbpabqfafaib");
- //BA.debugLineNum = 31;BA.debugLine="ListView1.Initialize(\"ListView1\")";
+ //BA.debugLineNum = 32;BA.debugLine="ListView1.Initialize(\"ListView1\")";
 mostCurrent._listview1.Initialize(mostCurrent.activityBA,"ListView1");
- //BA.debugLineNum = 32;BA.debugLine="For i = 1 To 40";
+ //BA.debugLineNum = 33;BA.debugLine="For i = 1 To 40";
 {
 final int step3 = 1;
 final int limit3 = (int) (40);
 for (_i = (int) (1) ; (step3 > 0 && _i <= limit3) || (step3 < 0 && _i >= limit3); _i = ((int)(0 + _i + step3)) ) {
- //BA.debugLineNum = 33;BA.debugLine="ListView1.AddSingleLine(\"Item #\" & i)";
+ //BA.debugLineNum = 34;BA.debugLine="ListView1.AddSingleLine(\"Item #\" & i)";
 mostCurrent._listview1.AddSingleLine(BA.ObjectToCharSequence("Item #"+BA.NumberToString(_i)));
  }
 };
- //BA.debugLineNum = 35;BA.debugLine="Activity.AddView(ListView1, 0, 0, 100%x, 100%y)";
+ //BA.debugLineNum = 36;BA.debugLine="Activity.AddView(ListView1, 0, 0, 100%x, 100%y)";
 mostCurrent._activity.AddView((android.view.View)(mostCurrent._listview1.getObject()),(int) (0),(int) (0),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (100),mostCurrent.activityBA));
- //BA.debugLineNum = 36;BA.debugLine="tapsell.requestNativeBannerAd(\"5943a6474684652bd8";
+ //BA.debugLineNum = 37;BA.debugLine="tapsell.requestNativeBannerAd(\"5943a6474684652bd8";
 mostCurrent._tapsell.requestNativeBannerAd("5943a6474684652bd8fc126d");
- //BA.debugLineNum = 37;BA.debugLine="End Sub";
+ //BA.debugLineNum = 38;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_pause(boolean _userclosed) throws Exception{
- //BA.debugLineNum = 86;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
- //BA.debugLineNum = 88;BA.debugLine="End Sub";
+ //BA.debugLineNum = 95;BA.debugLine="Sub Activity_Pause (UserClosed As Boolean)";
+ //BA.debugLineNum = 97;BA.debugLine="End Sub";
 return "";
 }
 public static String  _activity_resume() throws Exception{
- //BA.debugLineNum = 82;BA.debugLine="Sub Activity_Resume";
- //BA.debugLineNum = 84;BA.debugLine="End Sub";
+ //BA.debugLineNum = 91;BA.debugLine="Sub Activity_Resume";
+ //BA.debugLineNum = 93;BA.debugLine="End Sub";
 return "";
 }
 public static String  _globals() throws Exception{
@@ -395,7 +396,9 @@ mostCurrent._adpanel = new anywheresoftware.b4a.objects.PanelWrapper();
 mostCurrent._panelbackground = new anywheresoftware.b4a.objects.drawable.ColorDrawable();
  //BA.debugLineNum = 24;BA.debugLine="Dim sponsoredBackground As ColorDrawable";
 mostCurrent._sponsoredbackground = new anywheresoftware.b4a.objects.drawable.ColorDrawable();
- //BA.debugLineNum = 25;BA.debugLine="End Sub";
+ //BA.debugLineNum = 25;BA.debugLine="Dim ctaBackground As ColorDrawable";
+mostCurrent._ctabackground = new anywheresoftware.b4a.objects.drawable.ColorDrawable();
+ //BA.debugLineNum = 26;BA.debugLine="End Sub";
 return "";
 }
 public static String  _process_globals() throws Exception{
@@ -404,79 +407,91 @@ public static String  _process_globals() throws Exception{
 return "";
 }
 public static String  _tapsell_onerror(String _zoneid,String _error) throws Exception{
- //BA.debugLineNum = 77;BA.debugLine="Sub Tapsell_onError (zoneId As String, error As St";
- //BA.debugLineNum = 78;BA.debugLine="Log(\"Tapsell_onError\")";
+ //BA.debugLineNum = 86;BA.debugLine="Sub Tapsell_onError (zoneId As String, error As St";
+ //BA.debugLineNum = 87;BA.debugLine="Log(\"Tapsell_onError\")";
 anywheresoftware.b4a.keywords.Common.Log("Tapsell_onError");
- //BA.debugLineNum = 79;BA.debugLine="Msgbox(\"Error\",\"Tapsell\")";
+ //BA.debugLineNum = 88;BA.debugLine="Msgbox(\"Error\",\"Tapsell\")";
 anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("Error"),BA.ObjectToCharSequence("Tapsell"),mostCurrent.activityBA);
- //BA.debugLineNum = 80;BA.debugLine="End Sub";
+ //BA.debugLineNum = 89;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onnativebanneradavailable(String _zoneid,String _adid) throws Exception{
- //BA.debugLineNum = 39;BA.debugLine="Sub Tapsell_onNativeBannerAdAvailable (zoneId As S";
- //BA.debugLineNum = 40;BA.debugLine="Log(\"Tapsell_onNativeAdAvailable\")";
+ //BA.debugLineNum = 40;BA.debugLine="Sub Tapsell_onNativeBannerAdAvailable (zoneId As S";
+ //BA.debugLineNum = 41;BA.debugLine="Log(\"Tapsell_onNativeAdAvailable\")";
 anywheresoftware.b4a.keywords.Common.Log("Tapsell_onNativeAdAvailable");
- //BA.debugLineNum = 41;BA.debugLine="ListView1.Height = 80%y";
+ //BA.debugLineNum = 42;BA.debugLine="ListView1.Height = 80%y";
 mostCurrent._listview1.setHeight(anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (80),mostCurrent.activityBA));
- //BA.debugLineNum = 42;BA.debugLine="adLogo.Initialize(\"adLogo\")";
+ //BA.debugLineNum = 43;BA.debugLine="adLogo.Initialize(\"adLogo\")";
 mostCurrent._adlogo.Initialize(mostCurrent.activityBA,"adLogo");
- //BA.debugLineNum = 43;BA.debugLine="adTitle.Initialize(\"adTitle\")";
+ //BA.debugLineNum = 44;BA.debugLine="adTitle.Initialize(\"adTitle\")";
 mostCurrent._adtitle.Initialize(mostCurrent.activityBA,"adTitle");
- //BA.debugLineNum = 44;BA.debugLine="adSponsored.Initialize(\"adSponsored\")";
+ //BA.debugLineNum = 45;BA.debugLine="adSponsored.Initialize(\"adSponsored\")";
 mostCurrent._adsponsored.Initialize(mostCurrent.activityBA,"adSponsored");
- //BA.debugLineNum = 45;BA.debugLine="adCallToAction.Initialize(\"Button\")";
-mostCurrent._adcalltoaction.Initialize(mostCurrent.activityBA,"Button");
- //BA.debugLineNum = 47;BA.debugLine="adTitle.TextColor = Colors.Black";
+ //BA.debugLineNum = 47;BA.debugLine="adCallToAction.Initialize(\"adCallToAction\")";
+mostCurrent._adcalltoaction.Initialize(mostCurrent.activityBA,"adCallToAction");
+ //BA.debugLineNum = 49;BA.debugLine="adTitle.TextColor = Colors.Black";
 mostCurrent._adtitle.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.Black);
- //BA.debugLineNum = 48;BA.debugLine="adTitle.Gravity = Gravity.RIGHT";
+ //BA.debugLineNum = 50;BA.debugLine="adTitle.Gravity = Gravity.RIGHT";
 mostCurrent._adtitle.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.RIGHT);
- //BA.debugLineNum = 49;BA.debugLine="adTitle.TextSize = 16";
+ //BA.debugLineNum = 51;BA.debugLine="adTitle.Gravity = Gravity.CENTER_VERTICAL";
+mostCurrent._adtitle.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER_VERTICAL);
+ //BA.debugLineNum = 52;BA.debugLine="adTitle.TextSize = 16";
 mostCurrent._adtitle.setTextSize((float) (16));
- //BA.debugLineNum = 50;BA.debugLine="adSponsored.TextColor = Colors.Black";
-mostCurrent._adsponsored.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.Black);
- //BA.debugLineNum = 51;BA.debugLine="adSponsored.Gravity = Gravity.CENTER_HORIZONTAL";
+ //BA.debugLineNum = 53;BA.debugLine="adCallToAction.TextColor = Colors.Blue";
+mostCurrent._adcalltoaction.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.Blue);
+ //BA.debugLineNum = 54;BA.debugLine="adCallToAction.Gravity = Gravity.CENTER";
+mostCurrent._adcalltoaction.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER);
+ //BA.debugLineNum = 55;BA.debugLine="adCallToAction.TextSize = 14";
+mostCurrent._adcalltoaction.setTextSize((float) (14));
+ //BA.debugLineNum = 57;BA.debugLine="ctaBackground.Initialize2(Colors.White, 3, 3, Col";
+mostCurrent._ctabackground.Initialize2(anywheresoftware.b4a.keywords.Common.Colors.White,(int) (3),(int) (3),anywheresoftware.b4a.keywords.Common.Colors.Blue);
+ //BA.debugLineNum = 58;BA.debugLine="adCallToAction.Background = ctaBackground";
+mostCurrent._adcalltoaction.setBackground((android.graphics.drawable.Drawable)(mostCurrent._ctabackground.getObject()));
+ //BA.debugLineNum = 59;BA.debugLine="adSponsored.TextColor = Colors.White";
+mostCurrent._adsponsored.setTextColor(anywheresoftware.b4a.keywords.Common.Colors.White);
+ //BA.debugLineNum = 60;BA.debugLine="adSponsored.Gravity = Gravity.CENTER_HORIZONTAL";
 mostCurrent._adsponsored.setGravity(anywheresoftware.b4a.keywords.Common.Gravity.CENTER_HORIZONTAL);
- //BA.debugLineNum = 52;BA.debugLine="sponsoredBackground.Initialize(Colors.LightGray,4";
-mostCurrent._sponsoredbackground.Initialize(anywheresoftware.b4a.keywords.Common.Colors.LightGray,(int) (4));
- //BA.debugLineNum = 53;BA.debugLine="adSponsored.Background = sponsoredBackground";
+ //BA.debugLineNum = 61;BA.debugLine="sponsoredBackground.Initialize(Colors.Red,4)";
+mostCurrent._sponsoredbackground.Initialize(anywheresoftware.b4a.keywords.Common.Colors.Red,(int) (4));
+ //BA.debugLineNum = 62;BA.debugLine="adSponsored.Background = sponsoredBackground";
 mostCurrent._adsponsored.setBackground((android.graphics.drawable.Drawable)(mostCurrent._sponsoredbackground.getObject()));
- //BA.debugLineNum = 55;BA.debugLine="panelBackground.Initialize(Colors.White,4)";
-mostCurrent._panelbackground.Initialize(anywheresoftware.b4a.keywords.Common.Colors.White,(int) (4));
- //BA.debugLineNum = 56;BA.debugLine="adPanel.Initialize(\"adPanel\")";
+ //BA.debugLineNum = 64;BA.debugLine="panelBackground.Initialize2(Colors.White,4,4,Colo";
+mostCurrent._panelbackground.Initialize2(anywheresoftware.b4a.keywords.Common.Colors.White,(int) (4),(int) (4),anywheresoftware.b4a.keywords.Common.Colors.LightGray);
+ //BA.debugLineNum = 65;BA.debugLine="adPanel.Initialize(\"adPanel\")";
 mostCurrent._adpanel.Initialize(mostCurrent.activityBA,"adPanel");
- //BA.debugLineNum = 57;BA.debugLine="adPanel.Background = panelBackground";
+ //BA.debugLineNum = 66;BA.debugLine="adPanel.Background = panelBackground";
 mostCurrent._adpanel.setBackground((android.graphics.drawable.Drawable)(mostCurrent._panelbackground.getObject()));
- //BA.debugLineNum = 59;BA.debugLine="adPanel.AddView(adLogo,80%x,0,19%x,20%y)";
-mostCurrent._adpanel.AddView((android.view.View)(mostCurrent._adlogo.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (80),mostCurrent.activityBA),(int) (0),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (19),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (20),mostCurrent.activityBA));
- //BA.debugLineNum = 60;BA.debugLine="adPanel.AddView(adTitle,0,5%y,78%x,10%y)";
-mostCurrent._adpanel.AddView((android.view.View)(mostCurrent._adtitle.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (5),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (78),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (10),mostCurrent.activityBA));
- //BA.debugLineNum = 61;BA.debugLine="adPanel.AddView(adCallToAction,5%x,10%y,70%x,10%y";
-mostCurrent._adpanel.AddView((android.view.View)(mostCurrent._adcalltoaction.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (5),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (10),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (70),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (10),mostCurrent.activityBA));
- //BA.debugLineNum = 62;BA.debugLine="adPanel.AddView(adSponsored,0,0,10%x,5%y)";
+ //BA.debugLineNum = 68;BA.debugLine="adPanel.AddView(adLogo,80%x,0,20%x,15%y)";
+mostCurrent._adpanel.AddView((android.view.View)(mostCurrent._adlogo.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (80),mostCurrent.activityBA),(int) (0),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (20),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (15),mostCurrent.activityBA));
+ //BA.debugLineNum = 69;BA.debugLine="adPanel.AddView(adTitle,0,0%y,78%x,7%y)";
+mostCurrent._adpanel.AddView((android.view.View)(mostCurrent._adtitle.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (0),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (78),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (7),mostCurrent.activityBA));
+ //BA.debugLineNum = 70;BA.debugLine="adPanel.AddView(adCallToAction,5%x,6%y,50%x,8%y)";
+mostCurrent._adpanel.AddView((android.view.View)(mostCurrent._adcalltoaction.getObject()),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (5),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (6),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (50),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (8),mostCurrent.activityBA));
+ //BA.debugLineNum = 71;BA.debugLine="adPanel.AddView(adSponsored,0,0,10%x,5%y)";
 mostCurrent._adpanel.AddView((android.view.View)(mostCurrent._adsponsored.getObject()),(int) (0),(int) (0),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (10),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (5),mostCurrent.activityBA));
- //BA.debugLineNum = 63;BA.debugLine="Activity.AddView(adPanel,0,80%y,100%x,20%y)";
-mostCurrent._activity.AddView((android.view.View)(mostCurrent._adpanel.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (80),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (20),mostCurrent.activityBA));
- //BA.debugLineNum = 64;BA.debugLine="tapsell.fillNativeBannerAd(adId,adTitle,Null,Null";
-mostCurrent._tapsell.fillNativeBannerAd(_adid,(android.widget.TextView)(mostCurrent._adtitle.getObject()),(android.widget.TextView)(anywheresoftware.b4a.keywords.Common.Null),(android.widget.ImageView)(anywheresoftware.b4a.keywords.Common.Null),(android.widget.ImageView)(mostCurrent._adlogo.getObject()),(android.widget.TextView)(mostCurrent._adcalltoaction.getObject()),(android.widget.TextView)(mostCurrent._adsponsored.getObject()));
- //BA.debugLineNum = 65;BA.debugLine="End Sub";
+ //BA.debugLineNum = 72;BA.debugLine="Activity.AddView(adPanel,0,85%y,100%x,15%y)";
+mostCurrent._activity.AddView((android.view.View)(mostCurrent._adpanel.getObject()),(int) (0),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (85),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerXToCurrent((float) (100),mostCurrent.activityBA),anywheresoftware.b4a.keywords.Common.PerYToCurrent((float) (15),mostCurrent.activityBA));
+ //BA.debugLineNum = 73;BA.debugLine="tapsell.fillNativeBannerAd(adId,adTitle,Null,Null";
+mostCurrent._tapsell.fillNativeBannerAd(_adid,(android.widget.TextView)(mostCurrent._adtitle.getObject()),(android.widget.TextView)(anywheresoftware.b4a.keywords.Common.Null),(android.widget.ImageView)(anywheresoftware.b4a.keywords.Common.Null),(android.widget.ImageView)(mostCurrent._adlogo.getObject()),(android.widget.TextView)(mostCurrent._adcalltoaction.getObject()),(android.widget.TextView)(mostCurrent._adsponsored.getObject()),(android.view.ViewGroup)(mostCurrent._adpanel.getObject()));
+ //BA.debugLineNum = 74;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onnonativebanneradavailable(String _zoneid) throws Exception{
- //BA.debugLineNum = 67;BA.debugLine="Sub Tapsell_onNoNativeBannerAdAvailable (zoneId As";
- //BA.debugLineNum = 68;BA.debugLine="Log(\"Tapsell_onNoNativeAdAvailable\")";
+ //BA.debugLineNum = 76;BA.debugLine="Sub Tapsell_onNoNativeBannerAdAvailable (zoneId As";
+ //BA.debugLineNum = 77;BA.debugLine="Log(\"Tapsell_onNoNativeAdAvailable\")";
 anywheresoftware.b4a.keywords.Common.Log("Tapsell_onNoNativeAdAvailable");
- //BA.debugLineNum = 69;BA.debugLine="Msgbox(\"NoNativeAdAvailable\",\"Tapsell\")";
+ //BA.debugLineNum = 78;BA.debugLine="Msgbox(\"NoNativeAdAvailable\",\"Tapsell\")";
 anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("NoNativeAdAvailable"),BA.ObjectToCharSequence("Tapsell"),mostCurrent.activityBA);
- //BA.debugLineNum = 70;BA.debugLine="End Sub";
+ //BA.debugLineNum = 79;BA.debugLine="End Sub";
 return "";
 }
 public static String  _tapsell_onnonetwork(String _zoneid) throws Exception{
- //BA.debugLineNum = 72;BA.debugLine="Sub Tapsell_onNoNetwork (zoneId As String)";
- //BA.debugLineNum = 73;BA.debugLine="Log(\"Tapsell_onNoNetwork\")";
+ //BA.debugLineNum = 81;BA.debugLine="Sub Tapsell_onNoNetwork (zoneId As String)";
+ //BA.debugLineNum = 82;BA.debugLine="Log(\"Tapsell_onNoNetwork\")";
 anywheresoftware.b4a.keywords.Common.Log("Tapsell_onNoNetwork");
- //BA.debugLineNum = 74;BA.debugLine="Msgbox(\"NoNetwork\",\"Tapsell\")";
+ //BA.debugLineNum = 83;BA.debugLine="Msgbox(\"NoNetwork\",\"Tapsell\")";
 anywheresoftware.b4a.keywords.Common.Msgbox(BA.ObjectToCharSequence("NoNetwork"),BA.ObjectToCharSequence("Tapsell"),mostCurrent.activityBA);
- //BA.debugLineNum = 75;BA.debugLine="End Sub";
+ //BA.debugLineNum = 84;BA.debugLine="End Sub";
 return "";
 }
 }

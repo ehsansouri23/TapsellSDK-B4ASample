@@ -404,7 +404,7 @@ public static String  _tapsell_onnativevideoadavailable(String _zoneid,String _a
  //BA.debugLineNum = 41;BA.debugLine="Log(\"Tapsell_onNativeAdAvailable\")";
 anywheresoftware.b4a.keywords.Common.Log("Tapsell_onNativeAdAvailable");
  //BA.debugLineNum = 42;BA.debugLine="tapsell.fillNativeVideoAd(adId,True,True,lblTitle";
-mostCurrent._tapsell.fillNativeVideoAd(_adid,anywheresoftware.b4a.keywords.Common.True,anywheresoftware.b4a.keywords.Common.True,(android.widget.TextView)(mostCurrent._lbltitle.getObject()),(android.widget.TextView)(mostCurrent._lbldescription.getObject()),(android.view.ViewGroup)(mostCurrent._pvideocontainer.getObject()),(android.widget.ImageView)(mostCurrent._ivlogo.getObject()),(android.widget.TextView)(mostCurrent._btncalltoaction.getObject()),(android.widget.TextView)(mostCurrent._lblsponsored.getObject()));
+mostCurrent._tapsell.fillNativeVideoAd(_adid,anywheresoftware.b4a.keywords.Common.True,anywheresoftware.b4a.keywords.Common.True,(android.widget.TextView)(mostCurrent._lbltitle.getObject()),(android.widget.TextView)(mostCurrent._lbldescription.getObject()),(android.view.ViewGroup)(mostCurrent._pvideocontainer.getObject()),(android.widget.ImageView)(mostCurrent._ivlogo.getObject()),(android.widget.TextView)(mostCurrent._btncalltoaction.getObject()),(android.widget.TextView)(mostCurrent._lblsponsored.getObject()),(android.view.ViewGroup)(mostCurrent._adpanel.getObject()));
  //BA.debugLineNum = 43;BA.debugLine="AdPanel.Visible = True";
 mostCurrent._adpanel.setVisible(anywheresoftware.b4a.keywords.Common.True);
  //BA.debugLineNum = 44;BA.debugLine="End Sub";

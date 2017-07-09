@@ -44,7 +44,7 @@ End Sub
 
 Sub Tapsell_onNativeVideoAdAvailable (zoneId As String, adId As String)
 	Log("Tapsell_onNativeAdAvailable")
-	tapsell.fillNativeVideoAd(adId,True,True,lblTitle,lblDescription,pVideoContainer,ivLogo,btnCallToAction,lblSponsored)
+	tapsell.fillNativeVideoAd(adId,True,True,lblTitle,lblDescription,pVideoContainer,ivLogo,btnCallToAction,lblSponsored,AdPanel)
 	AdPanel.Visible = True
 End Sub
 
