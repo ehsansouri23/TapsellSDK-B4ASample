@@ -29,8 +29,7 @@ Library2=tapsellsdk
 #Region Activity Attributes 
 	#FullScreen: False
 	#IncludeTitle: True
-	#AdditionalJar : gson-2.8.0.jar
-    #AdditionalJar : tapsell-b4a-3.0.27.jar
+    #AdditionalJar : tapsell-b4a-3.0.29.jar
 #End Region
 
 Sub Process_Globals
