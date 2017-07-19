@@ -513,6 +513,13 @@ _videoviewed = anywheresoftware.b4a.keywords.Common.True;
  //BA.debugLineNum = 104;BA.debugLine="End Sub";
 return "";
 }
+public static String  _tapsell_onclosed(String _zoneid,String _adid) throws Exception{
+ //BA.debugLineNum = 140;BA.debugLine="Sub Tapsell_onClosed (zoneId As String, adId As St";
+ //BA.debugLineNum = 141;BA.debugLine="Log(\"onAdClosed\")";
+anywheresoftware.b4a.keywords.Common.Log("onAdClosed");
+ //BA.debugLineNum = 142;BA.debugLine="End Sub";
+return "";
+}
 public static String  _tapsell_onerror(String _zoneid,String _error) throws Exception{
  //BA.debugLineNum = 124;BA.debugLine="Sub Tapsell_onError (zoneId As String, error As St";
  //BA.debugLineNum = 125;BA.debugLine="Msgbox(\"Error\",\"Tapsell\")";
@@ -555,6 +562,13 @@ mostCurrent._request_button.setEnabled(anywheresoftware.b4a.keywords.Common.True
  //BA.debugLineNum = 121;BA.debugLine="show_button.Enabled = False";
 mostCurrent._show_button.setEnabled(anywheresoftware.b4a.keywords.Common.False);
  //BA.debugLineNum = 122;BA.debugLine="End Sub";
+return "";
+}
+public static String  _tapsell_onopened(String _zoneid,String _adid) throws Exception{
+ //BA.debugLineNum = 136;BA.debugLine="Sub Tapsell_onOpened (zoneId As String, adId As St";
+ //BA.debugLineNum = 137;BA.debugLine="Log(\"onAdOpened\")";
+anywheresoftware.b4a.keywords.Common.Log("onAdOpened");
+ //BA.debugLineNum = 138;BA.debugLine="End Sub";
 return "";
 }
 }

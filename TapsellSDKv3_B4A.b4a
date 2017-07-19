@@ -150,3 +150,11 @@ Sub Tapsell_onExpiring (zoneId As String, adId As String)
 	request_button.Enabled = True
 	show_button.Enabled = False
 End Sub
+
+Sub Tapsell_onOpened (zoneId As String, adId As String)
+	Log("onAdOpened")
+End Sub
+
+Sub Tapsell_onClosed (zoneId As String, adId As String)
+	Log("onAdClosed")
+End Sub
