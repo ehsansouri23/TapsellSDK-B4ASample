@@ -29,7 +29,7 @@ Library2=tapsellsdk
 #Region Activity Attributes 
 	#FullScreen: False
 	#IncludeTitle: True
-    #AdditionalJar : tapsell-b4a-3.0.29.jar
+    #AdditionalJar : tapsell-b4a-3.0.31.jar
 #End Region
 
 Sub Process_Globals
