@@ -7,11 +7,10 @@ Module4=Starter
 Build1=Default,ir.tapsell.b4asample
 ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>~\n~<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>~\n~<uses-permission android:name="android.permission.INTERNET"/>~\n~<uses-permission android:name="android.permission.READ_PHONE_STATE"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddApplicationText(~\n~        <!-- Required Activity -->~\n~        <activity~\n~            android:name="ir.tapsell.sdk.TapsellAdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>~\n~        )
 IconFile=
-NumberOfFiles=4
-File1=bkoodb.ttf
-File2=bottomadlayout.bal
-File3=TapsellAdLayout.bal
-File4=TapsellNativeVideoAdLayout.bal
+NumberOfFiles=3
+File1=bottomadlayout.bal
+File2=TapsellAdLayout.bal
+File3=TapsellNativeVideoAdLayout.bal
 NumberOfLibraries=2
 Library1=core
 Library2=tapsellsdk
@@ -29,7 +28,7 @@ Library2=tapsellsdk
 #Region Activity Attributes 
 	#FullScreen: False
 	#IncludeTitle: True
-    #AdditionalJar : tapsell-b4a-3.0.31.jar
+    #AdditionalJar : tapsell-b4a-3.0.35.jar
 #End Region
 
 Sub Process_Globals

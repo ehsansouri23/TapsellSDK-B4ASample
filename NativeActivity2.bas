@@ -28,6 +28,7 @@ Sub Globals
 	Dim panelBackground As ColorDrawable
 	Dim sponsoredBackground As ColorDrawable
 	Dim ctaBackground As ColorDrawable
+	Dim showStandardBanner As Boolean
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -35,11 +36,19 @@ Sub Activity_Create(FirstTime As Boolean)
 	'Activity.LoadLayout("Layout1")
 	tapsell.initialize("gfmkmttpomfmgtsjmmagbdmeesdioapomfqirteitgkgqndlmjoaqekdplhbpabqfafaib")
 	ListView1.Initialize("ListView1")
+	showStandardBanner = True
 	For i = 1 To 40
 		ListView1.AddSingleLine("Item #" & i)
 	Next
 	Activity.AddView(ListView1, 0, 0, 100%x, 100%y)
-	tapsell.requestNativeBannerAd("5943a6474684652bd8fc126d")
+	If showStandardBanner Then
+		adPanel.Initialize("adPanel")
+		ListView1.Height = 80%y
+		Activity.AddView(adPanel,0,85%y,100%x,15%y)
+		tapsell.fillBannerAd(adPanel, "59f094054684650e7a54ef38", tapsell.BANNER_320x50)
+	Else 
+		tapsell.requestNativeBannerAd("5943a6474684652bd8fc126d")
+	End If
 End Sub
 
 Sub Tapsell_onNativeBannerAdAvailable (zoneId As String, adId As String)
