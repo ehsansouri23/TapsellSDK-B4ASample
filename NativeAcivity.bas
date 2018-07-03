@@ -1,7 +1,8 @@
-﻿Type=Activity
-Version=6.8
+﻿B4A=true
+Group=Default Group
 ModulesStructureVersion=1
-B4A=true
+Type=Activity
+Version=6.8
 @EndOfDesignText@
 #Region  Activity Attributes 
 	#FullScreen: False
@@ -33,7 +34,7 @@ Sub Activity_Create(FirstTime As Boolean)
 	tapsell.initialize("gfmkmttpomfmgtsjmmagbdmeesdioapomfqirteitgkgqndlmjoaqekdplhbpabqfafaib")
 	tapsell.DebugMode = True
 	
-	tapsell.requestNativeBannerAd("5943a6474684652bd8fc126d")
+	tapsell.fillNativeBannerAd("5943a6474684652bd8fc126d",lblTitle,lblDescription,ivBanner,ivLogo,btnCallToAction,lblSponsored,AdPanel)
 	
 	'ListView1.Initialize("ListView1")
 	'For i = 1 To 20
@@ -44,7 +45,6 @@ End Sub
 
 Sub Tapsell_onNativeBannerAdAvailable (zoneId As String, adId As String)
 	Log("Tapsell_onNativeAdAvailable")
-	tapsell.fillNativeBannerAd(adId,lblTitle,lblDescription,ivBanner,ivLogo,btnCallToAction,lblSponsored,AdPanel)
 	AdPanel.Visible = True
 End Sub
 

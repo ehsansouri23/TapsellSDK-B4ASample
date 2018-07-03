@@ -1,7 +1,8 @@
-﻿Type=Service
-Version=6.8
+﻿B4A=true
+Group=Default Group
 ModulesStructureVersion=1
-B4A=true
+Type=Service
+Version=6.8
 @EndOfDesignText@
 #Region  Service Attributes 
 	#StartAtBoot: False

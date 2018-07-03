@@ -1,19 +1,23 @@
-﻿Version=6.8
-NumberOfModules=4
+﻿Build1=Default,ir.tapsell.b4asample
+File1=bottomadlayout.bal
+File2=TapsellAdLayout.bal
+File3=TapsellNativeVideoAdLayout.bal
+FileGroup1=Default Group
+FileGroup2=Default Group
+FileGroup3=Default Group
+Group=Default Group
+IconFile=
+Library1=core
+Library2=tapsellsdk
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>~\n~<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>~\n~<uses-permission android:name="android.permission.INTERNET"/>~\n~<uses-permission android:name="android.permission.READ_PHONE_STATE"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddApplicationText(~\n~        <!-- Required Activity -->~\n~        <activity~\n~            android:name="ir.tapsell.sdk.TapsellAdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>~\n~        )
 Module1=NativeAcivity
 Module2=NativeActivity2
 Module3=NativeVideoActivity
 Module4=Starter
-Build1=Default,ir.tapsell.b4asample
-ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="19"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>~\n~<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>~\n~<uses-permission android:name="android.permission.INTERNET"/>~\n~<uses-permission android:name="android.permission.READ_PHONE_STATE"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~AddApplicationText(~\n~        <!-- Required Activity -->~\n~        <activity~\n~            android:name="ir.tapsell.sdk.TapsellAdActivity" android:configChanges="keyboardHidden|orientation|screenSize"/>~\n~        )
-IconFile=
 NumberOfFiles=3
-File1=bottomadlayout.bal
-File2=TapsellAdLayout.bal
-File3=TapsellNativeVideoAdLayout.bal
 NumberOfLibraries=2
-Library1=core
-Library2=tapsellsdk
+NumberOfModules=4
+Version=8
 @EndOfDesignText@
 #Region  Project Attributes 
 	#ApplicationLabel: Tapsell B4A Sample
@@ -28,7 +32,7 @@ Library2=tapsellsdk
 #Region Activity Attributes 
 	#FullScreen: False
 	#IncludeTitle: True
-    #AdditionalJar : tapsell-b4a-3.0.35.jar
+    #AdditionalJar : tapsellsdk-b4a-3.1.9.jar
 #End Region
 
 Sub Process_Globals
@@ -111,7 +115,7 @@ Sub native_video_Click
 	StartActivity(NativeVideoActivity)
 End Sub
 
-Sub Tapsell_onAdShowFinished (zoneId As String, adId As String, completed As Boolean, rewarded As Boolean)
+Sub tapsell_onadshowfinished (zoneId As String, adId As String, completed As Boolean, rewarded As Boolean)
 	Log("onAdShowFinished")
 	If completed=True Then
 		If rewarded=True Then
@@ -120,7 +124,7 @@ Sub Tapsell_onAdShowFinished (zoneId As String, adId As String, completed As Boo
 	End If
 End Sub
 
-Sub Tapsell_onAdAvailable (zoneId As String, adId As String)
+Sub tapsell_onadavailable (zoneId As String, adId As String)
 	show_button.Enabled = True
 	request_button.Enabled = False
 	ad = adId
@@ -138,7 +142,7 @@ Sub Tapsell_onNoNetwork (zoneId As String)
 	show_button.Enabled = False
 End Sub
 
-Sub Tapsell_onError (zoneId As String, error As String)
+Sub tapsell_onerror (zoneId As String, error As String)
 	Msgbox("Error","Tapsell")
 	request_button.Enabled = True
 	show_button.Enabled = False
@@ -150,10 +154,10 @@ Sub Tapsell_onExpiring (zoneId As String, adId As String)
 	show_button.Enabled = False
 End Sub
 
-Sub Tapsell_onOpened (zoneId As String, adId As String)
+Sub tapsell_onopened (zoneId As String, adId As String)
 	Log("onAdOpened")
 End Sub
 
-Sub Tapsell_onClosed (zoneId As String, adId As String)
+Sub tapsell_onclosed (zoneId As String, adId As String)
 	Log("onAdClosed")
 End Sub

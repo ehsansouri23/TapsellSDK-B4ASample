@@ -1,7 +1,8 @@
-﻿Type=Activity
-Version=6.8
+﻿B4A=true
+Group=Default Group
 ModulesStructureVersion=1
-B4A=true
+Type=Activity
+Version=6.8
 @EndOfDesignText@
 #Region  Activity Attributes 
 	#FullScreen: False
@@ -47,7 +48,7 @@ Sub Activity_Create(FirstTime As Boolean)
 		Activity.AddView(adPanel,0,85%y,100%x,15%y)
 		tapsell.fillBannerAd(adPanel, "59f094054684650e7a54ef38", tapsell.BANNER_320x50)
 	Else 
-		tapsell.requestNativeBannerAd("5943a6474684652bd8fc126d")
+		tapsell.fillNativeBannerAd("5943a6474684652bd8fc126d",adTitle,Null,Null,adLogo,adCallToAction,adSponsored,adPanel)
 	End If
 End Sub
 
@@ -84,7 +85,7 @@ Sub Tapsell_onNativeBannerAdAvailable (zoneId As String, adId As String)
 	adPanel.AddView(adCallToAction,5%x,6%y,50%x,8%y)
 	adPanel.AddView(adSponsored,0,0,10%x,5%y)
 	Activity.AddView(adPanel,0,85%y,100%x,15%y)
-	tapsell.fillNativeBannerAd(adId,adTitle,Null,Null,adLogo,adCallToAction,adSponsored,adPanel)
+	
 End Sub
 
 Sub Tapsell_onNoNativeBannerAdAvailable (zoneId As String)

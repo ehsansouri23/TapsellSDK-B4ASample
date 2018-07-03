@@ -1,7 +1,8 @@
-﻿Type=Activity
-Version=6.8
+﻿B4A=true
+Group=Default Group
 ModulesStructureVersion=1
-B4A=true
+Type=Activity
+Version=6.8
 @EndOfDesignText@
 #Region  Activity Attributes 
 	#FullScreen: False
@@ -33,7 +34,7 @@ Sub Activity_Create(FirstTime As Boolean)
 	tapsell.initialize("gfmkmttpomfmgtsjmmagbdmeesdioapomfqirteitgkgqndlmjoaqekdplhbpabqfafaib")
 	tapsell.DebugMode = True
 	
-	tapsell.requestNativeVideoAd("5944fd264684653e528d8fd2")
+	tapsell.fillNativeVideoAd("5944fd264684653e528d8fd2",True,True,True,lblTitle,lblDescription,pVideoContainer,ivLogo,btnCallToAction,lblSponsored,AdPanel)
 	
 	'ListView1.Initialize("ListView1")
 	'For i = 1 To 20
@@ -44,7 +45,7 @@ End Sub
 
 Sub Tapsell_onNativeVideoAdAvailable (zoneId As String, adId As String)
 	Log("Tapsell_onNativeAdAvailable")
-	tapsell.fillNativeVideoAd(adId,True,True,lblTitle,lblDescription,pVideoContainer,ivLogo,btnCallToAction,lblSponsored,AdPanel)
+	
 	AdPanel.Visible = True
 End Sub
 
