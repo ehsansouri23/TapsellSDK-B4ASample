@@ -2,7 +2,7 @@
 Group=Default Group
 ModulesStructureVersion=1
 Type=Service
-Version=6.8
+Version=8
 @EndOfDesignText@
 #Region  Service Attributes 
 	#StartAtBoot: False
@@ -22,6 +22,7 @@ Sub Service_Create
 End Sub
 
 Sub Service_Start (StartingIntent As Intent)
+	
 
 End Sub
 

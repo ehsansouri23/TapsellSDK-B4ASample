@@ -31,37 +31,30 @@ End Sub
 Sub Activity_Create(FirstTime As Boolean)
 	'Do not forget to load the layout file created with the visual designer. For example:
 	Activity.LoadLayout("TapsellNativeVideoAdLayout")
-	tapsell.initialize("gfmkmttpomfmgtsjmmagbdmeesdioapomfqirteitgkgqndlmjoaqekdplhbpabqfafaib")
+	tapsell.initialize("kilkhmaqckffopkpfnacjkobgrgnidkphkcbtmbcdhiokqetigljpnnrbfbnpnhmeikjbq")
 	tapsell.DebugMode = True
 	
-	tapsell.fillNativeVideoAd("5944fd264684653e528d8fd2",True,True,True,lblTitle,lblDescription,pVideoContainer,ivLogo,btnCallToAction,lblSponsored,AdPanel)
-	
-	'ListView1.Initialize("ListView1")
-	'For i = 1 To 20
-	'	ListView1.AddSingleLine("Item #" & i)
-	'Next
-	'Activity.AddView(ListView1, 0, 0, 100%x, 100%y)
+	tapsell.fillNativeVideoAd("5953bd064684652dd8fcb02e", True, True, True, lblTitle, lblDescription, pVideoContainer, ivLogo, btnCallToAction, lblSponsored, AdPanel)
 End Sub
 
 Sub Tapsell_onNativeVideoAdAvailable (zoneId As String, adId As String)
 	Log("Tapsell_onNativeAdAvailable")
-	
 	AdPanel.Visible = True
 End Sub
 
 Sub Tapsell_onNoNativeVideoAdAvailable (zoneId As String)
 	Log("Tapsell_onNoNativeAdAvailable")
-	Msgbox("NoNativeAdAvailable","Tapsell")
+	Msgbox("NoNativeAdAvailable", "Tapsell")
 End Sub
 
 Sub Tapsell_onNoNetwork (zoneId As String)
 	Log("Tapsell_onNoNetwork")
-	Msgbox("NoNetwork","Tapsell")
+	Msgbox("NoNetwork", "Tapsell")
 End Sub
 
 Sub Tapsell_onError (zoneId As String, error As String)
 	Log("Tapsell_onError")
-	Msgbox("Error","Tapsell")
+	Msgbox("Error", "Tapsell")
 End Sub
 
 Sub Activity_Resume
