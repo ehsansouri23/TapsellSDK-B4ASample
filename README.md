@@ -15,7 +15,7 @@
 
 <h3><strong>گام ۱: دریافت </strong><strong>SDK</strong><strong> تپسل</strong></h3>
 فایل حاوی SDK تپسل را از آدرس زیر دریافت کنید و محتویات آن را در پوشه‌ای ذخیره کنید.
-<p style="text-align: center;"><a href="https://storage.backtory.com/tapsell-server/sdk/b4a/TapsellB4A_v3.0.35.zip"><button>دریافت فایل</button></a></p>
+<p style="text-align: center;"><a href="https://storage.backtory.com/tapsell-server/sdk/b4a/TapsellB4A_v4.0.0.zip"><button>دریافت فایل</button></a></p>
 &nbsp;
 <h3><strong>گام ۲: افزودن </strong><strong>SDK</strong><strong> تپسل به کتابخانه B4A</strong></h3>
 فایل‌های TapsellSDK.jar و TapsellSDK.xml را از SDK تپسل به پوشه‌ی Libraries در محل نصب B4A اضافه کنید. پروژه B4A خود را باز کنید و در بخش Libraries Manager، کلیک راست کرده و گزینه Refresh را انتخاب کنید تا فهرست به‌روزرسانی شود. سپس کتابخانه‌ی تپسل را از لیست پیدا کرده و آن را به پروژه خود اضافه کنید.
@@ -35,7 +35,7 @@
 در محدوده Activity Attributes از پروژه خود، خطوط زیر را اضافه کنید.
 <pre dir="ltr">#Region Activity Attributes
     ...
-    <span style="color: #ff9900;">#AdditionalJar</span> <span style="color: #a30a0a;">: tapsell-b4a-3.0.35.jar</span>
+    <span style="color: #ff9900;">#AdditionalJar</span> <span style="color: #a30a0a;">: tapsellsdk-b4a-4.0.2.jar</span>
 #End Region</pre>
 در صورتی که پروژه‌ی خود را در حالت debug اجرا می‌کنید خط زیر را در بخش Project Attributes فایل اصلی پروژه خود اضافه کنید:
 <pre dir="ltr">#Region Project Attributes
