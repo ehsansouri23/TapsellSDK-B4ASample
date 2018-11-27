@@ -33,7 +33,8 @@ Version=8
 #Region Activity Attributes 
 	#FullScreen: False
 	#IncludeTitle: True
-    #AdditionalJar : tapsellsdk-b4a-4.0.2.jar
+    #AdditionalJar : tapsellsdk-b4a-4.0.4.jar
+    #AdditionalJar : gson-2.8.5.jar
 #End Region
 
 Sub Process_Globals
